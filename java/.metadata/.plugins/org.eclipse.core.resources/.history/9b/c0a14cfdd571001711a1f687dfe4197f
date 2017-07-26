@@ -1,0 +1,51 @@
+package com.fhr.osmonitor.components;
+
+import java.io.IOException;
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+import com.fhr.osmonitor.dtos.OSystemMonitInfo;
+import com.fhr.osmonitor.models.OSystemInfo;
+import com.fhr.osmonitor.utils.ObjcetSerializableUtils;
+
+public class OsMonitUDPServer {
+	
+	private final OsMonitor osMonitor;
+	
+	private final DatagramSocket datagramSocket;
+	
+	public OsMonitUDPServer(OsMonitor osMonitor) throws SocketException{
+		this.osMonitor=osMonitor;
+		this.datagramSocket=new DatagramSocket(MonitorConfig.MONIT_SOCKET_PORT);
+	}
+	
+	public void init(){
+		//nothing
+	}
+	
+	public void start(){
+		while(true){
+			try{
+	            byte[] receiveBytes = new byte[1024];
+				DatagramPacket reveivePacket=new DatagramPacket(receiveBytes,receiveBytes.length);
+				datagramSocket.receive(reveivePacket);
+				///////reveivePacket.getLength()>0
+				byte[] infoBytes=getSystemMonitInfoBytes();
+				DatagramPacket sendDataPacket=new DatagramPacket(infoBytes, infoBytes.length, reveivePacket.getAddress(), reveivePacket.getPort());
+				datagramSocket.send(sendDataPacket);
+			}catch(IOException e){
+				
+			}
+		}
+	}
+	private byte[] getSystemMonitInfoBytes() throws IOException{
+		OSystemMonitInfo oSystemMonitInfo=getOSystemMonitInfo();
+		return ObjcetSerializableUtils.toByteArray(oSystemMonitInfo);
+	}
+	
+	private OSystemMonitInfo getOSystemMonitInfo(){
+		OSystemInfo oSystemInfo=osMonitor.getOSystemInfo();
+		return new OSystemMonitInfo(oSystemInfo.getMemoryRatio(),oSystemInfo.getCpuRatio(),oSystemInfo.getMonitTime());
+	}
+}

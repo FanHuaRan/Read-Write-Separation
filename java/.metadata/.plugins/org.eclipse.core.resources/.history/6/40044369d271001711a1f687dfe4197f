@@ -1,0 +1,11 @@
+package com.fhr.osmonitor.components;
+
+public class OsMonitUDPServer {
+	
+	private final OsMonitor osMonitor;
+	
+	public OsMonitUDPServer(OsMonitor osMonitor){
+		
+	}
+ 	
+}

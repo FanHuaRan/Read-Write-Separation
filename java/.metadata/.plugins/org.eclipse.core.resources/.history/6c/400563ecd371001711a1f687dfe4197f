@@ -1,0 +1,29 @@
+package com.fhr.osmonitor.components;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.SocketException;
+
+public class OsMonitUDPServer {
+	
+	private final OsMonitor osMonitor;
+	
+	private final DatagramSocket datagramSocket;
+	
+	private final DatagramPacket datagramPacket;
+	
+	public OsMonitUDPServer(OsMonitor osMonitor) throws SocketException{
+		this.osMonitor=osMonitor;
+		this.datagramSocket=new DatagramSocket(MonitorConfig.MONIT_SOCKET_PORT);
+	}
+	
+	public void init(){
+		//nothing
+	}
+	
+	public void start(){
+		while(true){
+			
+		}
+	}
+}

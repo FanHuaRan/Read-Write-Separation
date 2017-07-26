@@ -1,4 +1,7 @@
 package com.fhr.osmonitor.utils;
+
+import java.net.URL;
+
 /**
  * 资源辅助类
  * @author ASUS
@@ -12,7 +15,7 @@ public class ResourceUtils {
 	 */
 	public static String getAbsoluteFileName(String relativeFileName){
 		String absoluteFile = Thread.currentThread().getContextClassLoader().getResource(relativeFileName)
-				.getFile();
+				.getFile();//monitorconfig.properties
 		return absoluteFile;
 	}
 }

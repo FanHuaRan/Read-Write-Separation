@@ -62,6 +62,10 @@ public class OSystemInfo implements Serializable {
 	public double getCpuRatio() {
 		return cpuRatio;
 	}
+	
+	public DateTime getMonitTime() {
+		return monitTime;
+	}
 
 	@Override
 	public String toString() {

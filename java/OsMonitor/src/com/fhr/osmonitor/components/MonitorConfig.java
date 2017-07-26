@@ -15,7 +15,10 @@ import com.fhr.osmonitor.utils.ResourceUtils;
  */
 public class MonitorConfig {
 	private static final Logger logger = Logger.getLogger(MonitorConfig.class);
-
+	
+    //配置文件路径
+	private static final String CONFIG_NAME="monitorconfig.properties";
+	
 	// 监听间隔 以秒为单位 缺省为1s
 	public static final int MONIT_INTERVAL;
 
@@ -44,29 +47,29 @@ public class MonitorConfig {
 		double cpuSer = 0.95d;
 		try {
 			Properties properties = PropertiesUtils
-					.getPropertiesObj(ResourceUtils.getAbsoluteFileName("/monitorconfig.properties"));
+					.getPropertiesObj(ResourceUtils.getAbsoluteFileName(CONFIG_NAME));
 			String intervalStr = PropertiesUtils.getProperty(properties, "monit.interval");
 			if (StringUtils.isNotEmpty(intervalStr) && StringUtils.isNumeric(intervalStr)) {
 				interval = Integer.valueOf(intervalStr);
 			}
-			String sokertPortStr = PropertiesUtils.getProperty(properties, "monit.socketport");
-			if (StringUtils.isNotEmpty(sokertPortStr) && StringUtils.isNumeric(sokertPortStr)) {
+			String sokertPortStr = StringUtils.trim(PropertiesUtils.getProperty(properties, "monit.socketport"));
+			if (StringUtils.isNumeric(sokertPortStr)) {
 				port = Integer.valueOf(sokertPortStr);
 			}
-			String memWarnStr = PropertiesUtils.getProperty(properties, "monit.memwarn");
-			if (StringUtils.isNotEmpty(memWarnStr) && StringUtils.isNumeric(memWarnStr)) {
+			String memWarnStr = StringUtils.trim(PropertiesUtils.getProperty(properties, "monit.memwarn"));
+			if (StringUtils.isNumeric(memWarnStr)) {
 				memWarn = Double.valueOf(memWarnStr);
 			}
-			String memSerStr = PropertiesUtils.getProperty(properties, "monit.memser");
-			if (StringUtils.isNotEmpty(memSerStr) && StringUtils.isNumeric(memSerStr)) {
+			String memSerStr = StringUtils.trim(PropertiesUtils.getProperty(properties, "monit.memser"));
+			if (StringUtils.isNumeric(memSerStr)) {
 				memSer = Double.valueOf(memSerStr);
 			}
-			String cpuWarnStr = PropertiesUtils.getProperty(properties, "monit.cpuwarn");
-			if (StringUtils.isNotEmpty(cpuWarnStr) && StringUtils.isNumeric(cpuWarnStr)) {
+			String cpuWarnStr = StringUtils.trim(PropertiesUtils.getProperty(properties, "monit.cpuwarn"));
+			if (StringUtils.isNumeric(cpuWarnStr)) {
 				cpuWarn = Double.valueOf(cpuWarnStr);
 			}
-			String cpuSerStr = PropertiesUtils.getProperty(properties, "monit.socketport");
-			if (StringUtils.isNotEmpty(cpuSerStr) && StringUtils.isNumeric(cpuSerStr)) {
+			String cpuSerStr = StringUtils.trim(PropertiesUtils.getProperty(properties, "monit.socketport"));
+			if (StringUtils.isNumeric(cpuSerStr)) {
 				cpuSer = Double.valueOf(cpuSerStr);
 			}
 		} catch (Exception e) {

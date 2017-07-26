@@ -1,0 +1,5 @@
+package com.fhr.osmonitor.utils;
+
+public class ObjcetSerializableUtils {
+
+}
