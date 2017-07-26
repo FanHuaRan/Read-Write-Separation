@@ -17,7 +17,7 @@ import com.fhr.osmonitor.utils.ObjcetSerializableUtils;
  * @author fhr
  * @date 2017/07/26
  */
-public class OsMonitUDPServer {
+public class OsMonitUDPServer implements AutoCloseable {
 	private static final Logger logger = Logger.getLogger(OsMonitUDPServer.class);
 
 	// 检测器
@@ -35,7 +35,7 @@ public class OsMonitUDPServer {
 	// 开启运行 首先运行监听器 然后死循环接受客户端socket数据
 	public void start() {
 		osMonitor.start();
-		while (true) {
+		while (!datagramSocket.isClosed()) {
 			try {
 				byte[] receiveBytes = new byte[1024];
 				DatagramPacket reveivePacket = new DatagramPacket(receiveBytes, receiveBytes.length);
@@ -44,9 +44,24 @@ public class OsMonitUDPServer {
 				DatagramPacket sendDataPacket = new DatagramPacket(infoBytes, infoBytes.length,
 						reveivePacket.getAddress(), reveivePacket.getPort());
 				datagramSocket.send(sendDataPacket);
+			} catch (SocketException e) {
+				if (e.getMessage().equals("socket closed")) {
+					break;
+				} else {
+					logger.error(e);
+				}
 			} catch (IOException e) {
 				logger.error(e);
 			}
+		}
+	}
+
+	@Override
+	public void close() {
+		osMonitor.close();
+		try {
+			datagramSocket.close();
+		} catch (Exception e) {
 		}
 	}
 

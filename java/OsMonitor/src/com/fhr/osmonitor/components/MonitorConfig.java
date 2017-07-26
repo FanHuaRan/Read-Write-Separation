@@ -15,10 +15,10 @@ import com.fhr.osmonitor.utils.ResourceUtils;
  */
 public class MonitorConfig {
 	private static final Logger logger = Logger.getLogger(MonitorConfig.class);
-	
-    //配置文件路径
-	private static final String CONFIG_NAME="monitorconfig.properties";
-	
+
+	// 配置文件路径
+	private static final String CONFIG_NAME = "monitorconfig.properties";
+
 	// 监听间隔 以秒为单位 缺省为1s
 	public static final int MONIT_INTERVAL;
 
@@ -46,8 +46,7 @@ public class MonitorConfig {
 		double cpuWarn = 0.9d;
 		double cpuSer = 0.95d;
 		try {
-			Properties properties = PropertiesUtils
-					.getPropertiesObj(ResourceUtils.getAbsoluteFileName(CONFIG_NAME));
+			Properties properties = PropertiesUtils.getPropertiesObj(ResourceUtils.getAbsoluteFileName(CONFIG_NAME));
 			String intervalStr = PropertiesUtils.getProperty(properties, "monit.interval");
 			if (StringUtils.isNotEmpty(intervalStr) && StringUtils.isNumeric(intervalStr)) {
 				interval = Integer.valueOf(intervalStr);

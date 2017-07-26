@@ -21,7 +21,7 @@ import com.fhr.osmonitor.utils.SigarOSUtils;
  * @author fhr
  * @date 2017/07/26
  */
-public class OsMonitor {
+public class OsMonitor implements AutoCloseable {
 	private static final Logger logger = Logger.getLogger(OsMonitor.class);
 
 	// 当前时间段内的操作系统信息
@@ -46,7 +46,8 @@ public class OsMonitor {
 	}
 
 	// 停止监视
-	public void stop() {
+	@Override
+	public void close() {
 		if (!executorService.isShutdown()) {
 			try {
 				executorService.shutdown();

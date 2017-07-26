@@ -4,12 +4,9 @@
 <fullyQualifiedTypeName name="java.util.concurrent.Executors"/>
 <fullyQualifiedTypeName name="java.util.concurrent.TimeUnit"/>
 <fullyQualifiedTypeName name="com.fhr.osmonitor.utils.SigarOSUtils"/>
-<fullyQualifiedTypeName name="java.lang.Thread"/>
 <fullyQualifiedTypeName name="com.fhr.osmonitor.utils.PropertiesUtil"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.util.Properties"/>
-<fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
-<fullyQualifiedTypeName name="com.fhr.osmonitor.utils.ResourceUtils"/>
 <fullyQualifiedTypeName name="java.lang.Double"/>
 <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
 <fullyQualifiedTypeName name="java.util.EventObject"/>
@@ -24,7 +21,6 @@
 <fullyQualifiedTypeName name="com.fhr.osmonitor.event.SeriousEvent"/>
 <fullyQualifiedTypeName name="com.fhr.osmonitor.event.WarinEvent"/>
 <fullyQualifiedTypeName name="org.joda.time.DateTime"/>
-<fullyQualifiedTypeName name="java.lang.String"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayInputStream"/>
 <fullyQualifiedTypeName name="java.io.ObjectInputStream"/>
 <fullyQualifiedTypeName name="java.io.ByteArrayOutputStream"/>
@@ -32,9 +28,7 @@
 <fullyQualifiedTypeName name="org.apache.log4j.Logger"/>
 <fullyQualifiedTypeName name="java.lang.Class"/>
 <fullyQualifiedTypeName name="java.security.PublicKey"/>
-<fullyQualifiedTypeName name="java.net.DatagramSocket"/>
 <fullyQualifiedTypeName name="com.fhr.osmonitor.components.MonitorConfig"/>
-<fullyQualifiedTypeName name="java.lang.Exception"/>
 <fullyQualifiedTypeName name="java.net.InetAddress"/>
 <fullyQualifiedTypeName name="java.net.DatagramPacket"/>
 <fullyQualifiedTypeName name="com.fhr.osmonitor.models.OSystemInfo"/>
@@ -42,4 +36,18 @@
 <fullyQualifiedTypeName name="com.fhr.osmonitor.utils.ObjcetSerializableUtils"/>
 <fullyQualifiedTypeName name="com.fhr.osmonitor.components.OsMonitor"/>
 <fullyQualifiedTypeName name="com.fhr.osmonitor.components.OsMonitUDPServer"/>
+<fullyQualifiedTypeName name="java.net.URL"/>
+<fullyQualifiedTypeName name="java.lang.ClassLoader"/>
+<fullyQualifiedTypeName name="com.fhr.osmonitor.utils.ResourceUtils"/>
+<fullyQualifiedTypeName name="java.lang.String"/>
+<fullyQualifiedTypeName name="java.net.DatagramSocket"/>
+<fullyQualifiedTypeName name="org.apache.commons.lang.StringUtils"/>
+<fullyQualifiedTypeName name="java.lang.AutoCloseable"/>
+<fullyQualifiedTypeName name="java.lang.Override"/>
+<fullyQualifiedTypeName name="java.net.SocketException"/>
+<fullyQualifiedTypeName name="java.io.IOException"/>
+<fullyQualifiedTypeName name="java.lang.System"/>
+<fullyQualifiedTypeName name="java.lang.Thread"/>
+<fullyQualifiedTypeName name="java.lang.Exception"/>
+<fullyQualifiedTypeName name="java.lang.InterruptedException"/>
 </qualifiedTypeNameHistroy>
