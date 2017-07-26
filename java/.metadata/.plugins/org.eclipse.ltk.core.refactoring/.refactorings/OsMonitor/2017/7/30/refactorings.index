@@ -16,3 +16,5 @@
 1501049294548	Rename package 'com.fhr.osmonitor.program'
 1501049303937	Rename type 'SS'
 1501054624057	Rename type 'OSystemMonitorInfo'
+1501085434753	Extract method 'getClientDatagramPacket'
+1501085505685	Extract method 'responseSystemInfo'

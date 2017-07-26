@@ -41,8 +41,8 @@ public class Program {
 	}
 
 	// 屏幕提示 并控制主线程阻塞 和退出
-	private static void promptScreenBlock(Thread monitThread) throws IOException, InterruptedException {
-		Thread.sleep(1000);
+	private static void promptScreenBlock(Thread monitThread) throws IOException {
+		Thread.sleep(1500);
 		System.out.println("请输入q退出程序");
 		while ((char) System.in.read() != 'q') {}
 		try{

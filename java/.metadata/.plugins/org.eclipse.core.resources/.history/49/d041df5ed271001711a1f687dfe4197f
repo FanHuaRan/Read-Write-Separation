@@ -1,5 +1,0 @@
-package com.fhr.osmonitor.components;
-
-public class OsMonitUDPServer {
-
-}

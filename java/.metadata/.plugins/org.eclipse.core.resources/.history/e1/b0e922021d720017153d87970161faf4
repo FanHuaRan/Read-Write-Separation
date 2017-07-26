@@ -13,6 +13,7 @@ import com.fhr.osmonitor.utils.ObjcetSerializableUtils;
 
 /**
  * 操作系统检测UDP服务器
+ * 
  * @author fhr
  * @date 2017/07/26
  */
@@ -36,29 +37,27 @@ public class OsMonitUDPServer implements AutoCloseable {
 		osMonitor.start();
 		while (!datagramSocket.isClosed()) {
 			try {
-				// 阻塞获取客户端连接
-				DatagramPacket reveivePacket = getClientDatagramPacket();
-				// 返回客户端系统信息
-				responseSystemInfo(reveivePacket);
+				byte[] receiveBytes = new byte[1024];
+				DatagramPacket reveivePacket = new DatagramPacket(receiveBytes, receiveBytes.length);
+				datagramSocket.receive(reveivePacket);
+				byte[] infoBytes = getSystemMonitInfoBytes();
+				DatagramPacket sendDataPacket = new DatagramPacket(infoBytes, infoBytes.length,
+						reveivePacket.getAddress(), reveivePacket.getPort());
+				datagramSocket.send(sendDataPacket);
 			} catch (SocketException e) {
-				// 关闭程序会关闭socket,
-				// 从而会导致DatagramSocket.receive抛出：
-				// socket closed异常 所以不做处理
-				if (!e.getMessage().equals("socket closed")) {
-					e.printStackTrace();
+				if (e.getMessage().equals("socket closed")) {
+					break;
+				} else {
 					logger.error(e);
 				}
 			} catch (IOException e) {
-				e.printStackTrace();
 				logger.error(e);
-			} catch (Exception e) {
-				e.printStackTrace();
+			} catch(Exception e){
 				logger.error(e);
 			}
 		}
 	}
-
-	// 停止系统监听器和UDP通讯服务 会导致循环中一次SocketException异常的产生
+    // 停止系统监听器和UDP通讯服务 会导致循环中一次SocketException异常的产生
 	@Override
 	public void close() {
 		osMonitor.close();
@@ -79,21 +78,5 @@ public class OsMonitUDPServer implements AutoCloseable {
 		OSystemInfo oSystemInfo = osMonitor.getOSystemInfo();
 		return new OSystemMonitInfo(oSystemInfo.getMemoryRatio(), oSystemInfo.getCpuRatio(),
 				oSystemInfo.getMonitTime());
-	}
-
-	// 阻塞获取客户端连接
-	private DatagramPacket getClientDatagramPacket() throws IOException {
-		byte[] receiveBytes = new byte[1024];
-		DatagramPacket reveivePacket = new DatagramPacket(receiveBytes, receiveBytes.length);
-		datagramSocket.receive(reveivePacket);
-		return reveivePacket;
-	}
-
-	// 返回客户端系统信息
-	private void responseSystemInfo(DatagramPacket reveivePacket) throws IOException {
-		byte[] infoBytes = getSystemMonitInfoBytes();
-		DatagramPacket sendDataPacket = new DatagramPacket(infoBytes, infoBytes.length, reveivePacket.getAddress(),
-				reveivePacket.getPort());
-		datagramSocket.send(sendDataPacket);
 	}
 }

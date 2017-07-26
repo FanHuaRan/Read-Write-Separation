@@ -17,7 +17,7 @@ import com.fhr.osmonitor.utils.SigarOSUtils;
 
 /**
  * 操作系统监视器
- * 带事件驱动 ....如果以后有功能扩展的话
+ * 带事件驱动
  * @author fhr
  * @date 2017/07/26
  */
@@ -76,11 +76,11 @@ public class OsMonitor implements AutoCloseable {
 
 	// 处理事件
 	private void eventDeal() {
-		if (inSerious(oSystemInfo)) {//触发严重事件
+		if (inSerious(oSystemInfo)) {
 			seriousListeners.fire(new SeriousEvent(oSystemInfo));
 			return;
 		}
-		if (inWarin(oSystemInfo)) {//触发警告事件
+		if (inWarin(oSystemInfo)) {
 			warinListeners.fire(new WarinEvent(oSystemInfo));
 		}
 	}
