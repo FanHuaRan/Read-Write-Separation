@@ -1,0 +1,47 @@
+package com.fhr.osmonitor.components;
+
+import java.util.Properties;
+
+import org.apache.commons.lang.StringUtils;
+import org.apache.log4j.Logger;
+
+import com.fhr.osmonitor.utils.PropertiesUtils;
+import com.fhr.osmonitor.utils.ResourceUtils;
+
+/**
+ * 监听配置对象
+ * @author fhr
+ * @date 2017/07/26
+ */
+public class MonitorConfig {
+	
+	private static final Logger logger=Logger.getLogger(MonitorConfig.class);
+	
+	//监听间隔 以秒为单位 缺省为1
+	public static final int MONIT_INTERVAL;
+	
+	//端口 缺省为14080
+	public static final int MONIT_SOCKET_PORT;
+	
+	//初始化常量值
+	static {
+		int interval = 1;
+		int port = 14080;
+		try {
+			Properties properties = PropertiesUtils.getPropertiesObj(ResourceUtils.getAbsoluteFileName("/monitorconfig.properties"));
+			String monitorInterval = PropertiesUtils.getProperty(properties, "monit.interval");
+			if (StringUtils.isNotEmpty(monitorInterval) && StringUtils.isNumeric(monitorInterval)) {
+				interval = Integer.valueOf(monitorInterval);
+			}
+			String sokertPort = PropertiesUtils.getProperty(properties, "monit.socketport");
+			if (StringUtils.isNotEmpty(sokertPort) && StringUtils.isNumeric(sokertPort)) {
+				port = Integer.valueOf(monitorInterval);
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			logger.error("配置文件读取错误", e);
+		}
+		MONIT_INTERVAL = interval;
+		MONIT_SOCKET_PORT = port;
+	}
+}

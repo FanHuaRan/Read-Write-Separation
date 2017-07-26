@@ -1,0 +1,6 @@
+### set attachfiles config ###
+attach.root=D:\\attachfile
+chunk.temp=D:\\chunk
+attach.firstdircount=256
+attach.secondircount=256
+attach.filecount=500

@@ -1,0 +1,21 @@
+package com.fhr.osmonitor.components;
+/**
+ * 监听配置对象
+ * @author fhr
+ * @date 2017/07/26
+ */
+public class MonitorConfig {
+	
+	//监听间隔 以秒为单位
+	public static final int MONIT_INTERVAL;
+	
+	//端口
+	public static final int MONIT_SOCKET_PORT;
+	
+	static{
+		Thread.currentThread().getContextClassLoader().getResource("/").getFile();
+		
+		MONIT_INTERVAL=1;
+		MONIT_SOCKET_PORT=102;
+	}
+}

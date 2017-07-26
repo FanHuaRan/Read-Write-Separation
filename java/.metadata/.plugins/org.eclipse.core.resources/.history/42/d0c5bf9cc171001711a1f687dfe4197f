@@ -1,0 +1,13 @@
+package com.fhr.osmonitor.event;
+
+import java.util.EventListener;
+/**
+ * 系统警告监听器
+ * @author fhr
+ * @date
+ */
+public interface WarinListener extends EventListener {
+	
+	void HandleEvent(SeriousEvent event);
+
+}

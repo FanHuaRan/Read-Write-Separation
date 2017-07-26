@@ -1,0 +1,10 @@
+package com.fhr.osmonitor.event;
+
+import java.util.EventObject;
+
+public class SeriousEvent extends EventObject{
+
+	public SeriousEvent(Object source) {
+		super(source);
+	}
+}

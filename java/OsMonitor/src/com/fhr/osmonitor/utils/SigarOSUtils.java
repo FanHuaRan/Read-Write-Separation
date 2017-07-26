@@ -5,6 +5,7 @@ import org.hyperic.sigar.CpuPerc;
 import org.hyperic.sigar.Mem;
 import org.hyperic.sigar.Sigar;
 import org.hyperic.sigar.SigarException;
+import org.joda.time.DateTime;
 
 import com.fhr.osmonitor.models.OSystemInfo;
 
@@ -38,16 +39,16 @@ public class SigarOSUtils{
 			return null;
 		}
 		// 总内存容量
-		long totalMemory = mem.getTotal() / OSystemInfo.MEMORYUNIT;
+		long totalMemory = mem.getTotal() / OSystemInfo.MEMORY_UNIT;
 		// 已使用内存
-		long usedMemory = mem.getUsed() / OSystemInfo.MEMORYUNIT;
+		long usedMemory = mem.getUsed() / OSystemInfo.MEMORY_UNIT;
 		// 剩余内存
-		long freeMemory = mem.getFree() / OSystemInfo.MEMORYUNIT;
+		long freeMemory = mem.getFree() / OSystemInfo.MEMORY_UNIT;
 		// 内存使用率
 		double memoryRatio = usedMemory /(double) totalMemory;
 		// cpu使用率=1-cpu空闲率
 		double cpuRatio = 1-cpuPerc.getIdle();
-		return new OSystemInfo(totalMemory, usedMemory, freeMemory, memoryRatio, cpuRatio);
+		return new OSystemInfo(totalMemory, usedMemory, freeMemory, memoryRatio, cpuRatio,DateTime.now());
 	}
 
 }

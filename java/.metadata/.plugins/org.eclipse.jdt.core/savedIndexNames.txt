@@ -1,0 +1,23 @@
+INDEX VERSION 1.127+E:\Programing\Read-Write-Separation\java\.metadata\.plugins\org.eclipse.jdt.core
+262398094.index
+1707545540.index
+2316780280.index
+406488438.index
+1584947099.index
+1672362894.index
+2628331985.index
+2873527676.index
+2508914660.index
+2270947980.index
+2402731568.index
+3957185479.index
+3352097551.index
+1951532881.index
+1310201334.index
+394732997.index
+3244846990.index
+3112964851.index
+3149754900.index
+108981631.index
+2701534250.index
+41464628.index

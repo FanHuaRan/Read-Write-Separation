@@ -1,0 +1,7 @@
+package com.fhr.osmonitor.event;
+
+import java.util.EventListener;
+
+public interface SeriousListener extends EventListener {
+
+}

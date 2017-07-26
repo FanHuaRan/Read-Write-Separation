@@ -1,0 +1,17 @@
+1500969924922	Encapsulate field 'monitTime'
+1500970053490	Delete element
+1500970106711	Rename type 'SigarOSTool'
+1501037536407	Move file
+1501037551243	Rename resource 'attachfilesconfig.properties'
+1501037561570	Rename resource 'monitor.properties'
+1501037844157	Delete element
+1501039486166	Rename type 'PropertiesUtil'
+1501041651463	Rename type 'SeriousEvent'
+1501041666872	Rename type 'SystemSeriousEvent'
+1501048162508	Extract method 'eventDeal'
+1501048324770	Rename field 'MEMORYUNIT'
+1501048801074	Rename package 'com.fhr.osmonitor.dtomodels'
+1501048805240	Move compilation unit
+1501049281767	Rename package 'com.fhr.osmonitor.comserver'
+1501049294548	Rename package 'com.fhr.osmonitor.program'
+1501049303937	Rename type 'SS'
