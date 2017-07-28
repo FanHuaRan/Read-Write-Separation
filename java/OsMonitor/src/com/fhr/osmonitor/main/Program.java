@@ -34,7 +34,8 @@ public class Program {
 			logger.error("UDP系统信息检测服务运行出错");
 			return;
 		} catch (IOException e) {
-
+			
+			
 		} catch (Exception e) {
 
 		}

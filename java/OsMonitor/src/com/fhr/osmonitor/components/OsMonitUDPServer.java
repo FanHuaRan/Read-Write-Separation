@@ -18,10 +18,13 @@ import com.fhr.osmonitor.utils.ObjcetSerializableUtils;
  */
 public class OsMonitUDPServer implements AutoCloseable {
 	private static final Logger logger = Logger.getLogger(OsMonitUDPServer.class);
-
+	
+	//socket请求系统信息的标识 这儿只是为了方便后面提供更多的服务
+	private static final String INFO_CODE="osinfo";
+	
 	// 检测器
 	private final OsMonitor osMonitor;
-
+	
 	// 用于收发数据报的UDP socket
 	private final DatagramSocket datagramSocket;
 
@@ -38,8 +41,14 @@ public class OsMonitUDPServer implements AutoCloseable {
 			try {
 				// 阻塞获取客户端连接
 				DatagramPacket reveivePacket = getClientDatagramPacket();
-				// 返回客户端系统信息
-				responseSystemInfo(reveivePacket);
+				String dataStr = new String(reveivePacket.getData(), 0, reveivePacket.getLength(), "UTF-8");
+				switch (dataStr) {
+					case INFO_CODE:// 系统信息服务 返回客户端系统信息
+						responseSystemInfo(reveivePacket);
+						break;
+					default:
+						break;
+				}
 			} catch (SocketException e) {
 				// 关闭程序会关闭socket,
 				// 从而会导致DatagramSocket.receive抛出：
@@ -83,8 +92,8 @@ public class OsMonitUDPServer implements AutoCloseable {
 
 	// 阻塞获取客户端连接
 	private DatagramPacket getClientDatagramPacket() throws IOException {
-		byte[] receiveBytes = new byte[1024];
-		DatagramPacket reveivePacket = new DatagramPacket(receiveBytes, receiveBytes.length);
+		byte[] bufferBytes = new byte[1024];//1kb的获取数据的缓冲区
+		DatagramPacket reveivePacket = new DatagramPacket(bufferBytes, bufferBytes.length);
 		datagramSocket.receive(reveivePacket);
 		return reveivePacket;
 	}

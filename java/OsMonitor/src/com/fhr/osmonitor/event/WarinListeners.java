@@ -17,4 +17,8 @@ public class WarinListeners extends HashSet<WarinListener> {
 		}
 	}
 	
+	@Override
+	public String toString(){
+		return String.format("WarinListeners[size:%d]",this.size());
+	}
 }

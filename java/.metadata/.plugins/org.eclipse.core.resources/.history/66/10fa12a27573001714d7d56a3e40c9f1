@@ -1,0 +1,20 @@
+package com.fhr.osmonitor.test;
+
+import static org.junit.Assert.*;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+
+import org.junit.Test;
+
+public class TestUdpServer {
+
+	@Test
+	public void test() {
+		byte[] bytes=new String("osinfo").getBytes();
+		DatagramPacket 
+	    DatagramSocket client = new DatagramSocket();
+
+	}
+
+}

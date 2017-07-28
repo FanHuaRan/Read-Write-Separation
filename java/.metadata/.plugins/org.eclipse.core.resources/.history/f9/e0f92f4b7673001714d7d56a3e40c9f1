@@ -1,0 +1,21 @@
+package com.fhr.osmonitor.test;
+
+import static org.junit.Assert.*;
+
+import java.net.DatagramPacket;
+import java.net.DatagramSocket;
+import java.net.InetAddress;
+
+import org.junit.Test;
+
+public class TestUdpServer {
+
+	@Test
+	public void test() {
+		byte[] bytes=new String("osinfo").getBytes();
+				DatagramPacket  datagramPacket=new DatagramPacket(bytes, bytes.length,InetAddress.getAllByName("localhost"), 16081);
+	    DatagramSocket client = new DatagramSocket();
+		
+	}
+
+}

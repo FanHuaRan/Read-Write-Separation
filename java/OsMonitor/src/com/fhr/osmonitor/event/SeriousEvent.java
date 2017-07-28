@@ -14,4 +14,10 @@ public class SeriousEvent extends EventObject{
 	public SeriousEvent(OSystemInfo source) {
 		super(source);
 	}
+	
+	@Override
+	public String toString(){
+		OSystemInfo info=(OSystemInfo)this.source; 
+		return String.format("serious event[memoryratio:%d,cpuratio:%d]",info.getMemoryRatio(),info.getCpuRatio());
+	}
 }

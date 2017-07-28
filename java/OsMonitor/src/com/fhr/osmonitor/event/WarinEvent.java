@@ -14,4 +14,9 @@ public class WarinEvent extends EventObject {
 	public WarinEvent(OSystemInfo source) {
 		super(source);
 	}
+	@Override
+	public String toString(){
+		OSystemInfo info=(OSystemInfo)this.source; 
+		return String.format("warin event[memoryratio:%d,cpuratio:%d]",info.getMemoryRatio(),info.getCpuRatio());
+	}
 }

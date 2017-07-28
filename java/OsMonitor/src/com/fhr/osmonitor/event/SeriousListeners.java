@@ -17,5 +17,8 @@ public class SeriousListeners extends HashSet<SeriousListener> {
 			}
 		}
 	}
-	
+	@Override
+	public String toString(){
+		return String.format("SeriousListeners[size:%d]",this.size());
+	}
 }
