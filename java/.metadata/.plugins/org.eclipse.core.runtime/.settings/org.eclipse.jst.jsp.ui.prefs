@@ -3,6 +3,7 @@ commentBorder=\#FFFFFF | null | null | null | null | null
 commentText=\#FFFFFF | null | null | null | null | null
 eclipse.preferences.version=1
 jsp_content=\#CFBFAD | null | null | null | null | null
+newFileTemplateName=New JSP File (html)
 tagAttributeEquals=\#CFBFAD | null | null | null | null | null
 tagAttributeName=\#FF007F | null | null | null | null | null
 tagAttributeValue=\#ECE47E | null | null | null | null | null
