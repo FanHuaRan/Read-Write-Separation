@@ -12,6 +12,7 @@
     <param-name>contextConfigLocation</param-name>
     <param-value>classpath:applicationContext.xml</param-value>
   </context-param>
+  <!-- spring上下文监听器 -->
   <listener>
     <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
   </listener>
@@ -19,10 +20,15 @@
     <param-name>log4jConfigLocation</param-name>
     <param-value>classpath:log4j.properties</param-value>
   </context-param>
-  
+  <!-- log4j监听器 -->
   <listener>
     <listener-class>org.springframework.web.util.Log4jConfigListener</listener-class>
   </listener>
+  <!--自定义web监听器，内含操作系统监听逻辑 一定要放在spring等监听器之后 不然获取不到spring上下文 
+        监听器调用顺序是根据书写顺序调用的-->
+  <listener>
+    <listener-class>com.fhr.readwritedemo.components.InitListener</listener-class>  
+  </listener> 
   <filter>
     <filter-name>encodingFilter</filter-name>
     <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>

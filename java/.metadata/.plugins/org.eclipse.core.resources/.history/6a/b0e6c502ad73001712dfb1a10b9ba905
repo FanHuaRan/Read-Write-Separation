@@ -1,0 +1,11 @@
+package com.fhr.readwritedemo.models;
+/**
+ * 
+ * @author fhr
+ * @date
+ */
+public class DataBaseModel java.io.Serializable {
+	private static final long serialVersionUID = 8611633278205294077L;
+	
+	
+}

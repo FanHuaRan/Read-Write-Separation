@@ -1,0 +1,5 @@
+package com.fhr.readwritedemo.service;
+
+public class IConnectionGetService {
+
+}

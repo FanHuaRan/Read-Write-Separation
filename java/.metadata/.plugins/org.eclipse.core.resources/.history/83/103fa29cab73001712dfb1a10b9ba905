@@ -1,0 +1,5 @@
+package com.fhr.readwritedemo.services.impl;
+
+public class ConnectionGetServiceImpl implements IConnectionGetService{
+
+}

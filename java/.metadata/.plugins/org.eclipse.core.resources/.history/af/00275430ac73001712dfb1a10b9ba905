@@ -1,0 +1,14 @@
+package com.fhr.readwritedemo.models;
+/**
+ * 数据库模型
+ * @author fhr
+ * @date 2017/07/28
+ */
+public class DataBaseInfo  {
+	private  final String url="";
+	
+	private  final String user="";
+	
+	private final String  password="";
+
+}

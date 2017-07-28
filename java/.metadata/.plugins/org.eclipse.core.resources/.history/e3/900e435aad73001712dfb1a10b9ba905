@@ -1,0 +1,10 @@
+package com.fhr.readwritedemo.models;
+/**
+ * 
+ * @author fhr
+ * @date
+ */
+public class DataBaseModel implements java.io.Serializable {
+	 
+	
+}
