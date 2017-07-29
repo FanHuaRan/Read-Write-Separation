@@ -1,0 +1,18 @@
+package com.fhr.readwritedemo.services;
+
+import java.util.List;
+
+import com.fhr.readwritedemo.models.DataBaseModel;
+
+/**
+ * 数据库初始化服务
+ * @author fhr
+ * @date
+ */
+public interface IDataBaseInitialService {
+	/**
+	 * 获取所有的数据库
+	 * @return
+	 */
+	List<DataBaseModel> getDataBaseModels();
+}

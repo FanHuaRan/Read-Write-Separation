@@ -1,0 +1,16 @@
+package com.fhr.readwritedemo.gloable;
+
+import java.util.List;
+
+import javax.sql.DataSource;
+
+/** 
+ * 数据库环境 个人感觉这儿最好全是静态
+ * @author fhr
+ * @date 2017/07/29
+ */ 
+public class DataSourceSys {
+	public  static DataSource  writeDataSource;
+	
+	public  static List<DataSource> readDataSources;
+}

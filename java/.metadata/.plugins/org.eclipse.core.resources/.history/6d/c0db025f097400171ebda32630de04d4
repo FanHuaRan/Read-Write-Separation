@@ -1,0 +1,15 @@
+package com.fhr.readwritedemo.services.impl;
+
+import java.util.List;
+
+import com.fhr.readwritedemo.models.DataBaseModel;
+import com.fhr.readwritedemo.services.IDataBaseInitialService;
+
+public class DataBaseInitialServiceImpl implements IDataBaseInitialService{
+
+	@Override
+	public List<DataBaseModel> getDataBaseModels() {
+		return null;
+	}
+
+}

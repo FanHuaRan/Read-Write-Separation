@@ -1,0 +1,13 @@
+package com.fhr.readwritedemo.services;
+
+
+/**
+ * 数据库初始化服务
+ * @author fhr
+ * @date
+ */
+public interface IDataBaseInitialService {
+	
+	Lis
+
+}

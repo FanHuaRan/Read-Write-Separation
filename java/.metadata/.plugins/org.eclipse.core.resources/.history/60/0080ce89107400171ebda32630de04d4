@@ -1,0 +1,4 @@
+[{"url":"xxxx","user":"root","password":"123",databasetype:2,visittype:1},
+ {"url":"yyyy","user":"root","password":"123",databasetype:2,visittype:2},
+ {"url":"zzzz","user":"root","password":"123",databasetype:2,visittype:2,
+]
