@@ -7,6 +7,7 @@ import java.util.List;
 import org.apache.commons.io.FileUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
@@ -21,6 +22,7 @@ import com.fhr.readwritedemo.services.IDataBaseInfoService;
  * @author fhr
  * @date 2017/07/29
  */
+@Service
 public class DataBaseInfoServiceImpl implements IDataBaseInfoService {
 	private static final Logger logger = Logger.getLogger(DataBaseInfoServiceImpl.class);
 

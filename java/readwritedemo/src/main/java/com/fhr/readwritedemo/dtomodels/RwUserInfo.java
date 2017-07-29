@@ -1,19 +1,31 @@
 package com.fhr.readwritedemo.dtomodels;
 
 import io.swagger.annotations.ApiModel;
+import io.swagger.annotations.ApiModelProperty;
 
+/**
+ * 用户信息
+ * 
+ * @author fhr
+ * @date
+ */
 @ApiModel
 public class RwUserInfo implements java.io.Serializable {
 	private static final long serialVersionUID = 5263520779883381805L;
-	// 编号
+	
+	@ApiModelProperty(value = "用户编号", required = false)
 	private int userId;
-	// 姓名
+	
+	@ApiModelProperty(value = "用户名字", required = true)
 	private String name;
-	// 年龄
+	
+	@ApiModelProperty(value = "用户年龄", required = true)
 	private short age;
-	// 性别
+	
+	@ApiModelProperty(value = "用户性别", required = true)
 	private String gender;
-	// 邮箱
+	
+	@ApiModelProperty(value = "用户邮箱", required = false)
 	private String email;
 
 	public RwUserInfo(int userId, String name, short age, String gender, String email) {

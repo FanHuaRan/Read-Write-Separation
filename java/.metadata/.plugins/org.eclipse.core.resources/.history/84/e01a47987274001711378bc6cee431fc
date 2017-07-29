@@ -1,0 +1,5 @@
+package com.fhr.readwritedemo.repositorys;
+
+public interface IRwUserRepository {
+
+}

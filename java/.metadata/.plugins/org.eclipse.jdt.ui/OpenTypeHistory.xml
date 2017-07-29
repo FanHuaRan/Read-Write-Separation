@@ -3,4 +3,6 @@
 <typeInfo handle="=OsMonitor/D:\/Program Files\/Java\/jre1.8.0_66\/lib\/rt.jar&lt;java.util(EventListener.class[EventListener" modifiers="1537" timestamp="1484180667225"/>
 <typeInfo handle="=OsMonitor/D:\/Program Files\/Java\/jre1.8.0_66\/lib\/rt.jar&lt;javax.naming.event(EventContext.class[EventContext" modifiers="1537" timestamp="1484180667225"/>
 <typeInfo handle="=OsMonitor/D:\/Program Files\/Java\/jre1.8.0_66\/lib\/rt.jar&lt;org.w3c.dom.events(Event.class[Event" modifiers="1537" timestamp="1484180667225"/>
+<typeInfo handle="=readwritedemo/src\/main\/java&lt;com.fhr.readwritedemo.services{IRwUserInfoService.java[IRwUserInfoService" modifiers="513" timestamp="1501331581573"/>
+<typeInfo handle="=readwritedemo/src\/main\/java&lt;com.fhr.readwritedemo.repositorys{IRwUserRepository.java[IRwUserRepository" modifiers="513" timestamp="1501342151813"/>
 </typeInfoHistroy>

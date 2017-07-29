@@ -2,6 +2,8 @@ package com.fhr.readwritedemo.services.impl;
 
 import javax.sql.DataSource;
 
+import org.springframework.stereotype.Service;
+
 import com.fhr.readwritedemo.models.DataBaseInfo;
 import com.fhr.readwritedemo.models.DataBaseType;
 import com.fhr.readwritedemo.services.ICreateDataSourceService;
@@ -12,6 +14,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
  * @author fhr
  * @date 2017/07/29
  */
+@Service
 public class CreateDataSourceServiceImpl implements ICreateDataSourceService {
 	// 连接池最大连接数
 	private static final int MAX_POOL_SIZE = 50;

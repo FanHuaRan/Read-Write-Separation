@@ -18,10 +18,11 @@ public class GlobalConfig {
 	public final String webRoot;
 	// 数据库配置文件路径
 	public final String databaseConfigFile;
-	@Autowired
+	// servlet上下文
 	private ServletContext servletContext;
-
-	{
+	@Autowired
+	public GlobalConfig(ServletContext servletContext){
+		this.servletContext=servletContext;
 		webRoot = servletContext.getRealPath("/WEB-INF/classes/databases.json");
 		databaseConfigFile = webRoot + "/" + RELATIVE_DATABASE_CONFIG_FILE;
 	}

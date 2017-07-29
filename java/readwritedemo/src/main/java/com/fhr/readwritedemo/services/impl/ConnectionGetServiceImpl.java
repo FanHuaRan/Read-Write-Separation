@@ -1,7 +1,9 @@
 package com.fhr.readwritedemo.services.impl;
 
-import com.fhr.readwritedemo.services.IConnectionGetService;
+import org.springframework.stereotype.Service;
 
+import com.fhr.readwritedemo.services.IConnectionGetService;
+@Service
 public class ConnectionGetServiceImpl implements IConnectionGetService{
 	
 

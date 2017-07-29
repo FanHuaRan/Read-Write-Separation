@@ -1,0 +1,36 @@
+package com.fhr.readwritedemo.dtoconverters;
+
+import org.apache.commons.lang3.StringUtils;
+import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Repository;
+
+import com.fhr.readwritedemo.dtomodels.RwUserInfo;
+import com.fhr.readwritedemo.models.RwUser;
+
+@Component
+public class RwUserInfoConverter {
+	
+	public RwUserInfo convert(RwUser rwUser){
+		return new RwUserInfo(rwUser.getName(), rwUser.getAge(), getGender(rwUser.getGender()), rwUser.getEmail());
+	}
+	
+	private String getGender(short gender){
+		if(gender==1){
+			return "男";
+		}
+		if(gender==2){
+			return "女";
+		}
+		return "未知";
+	}
+	
+	private byte getGender(String gender){
+		if(StringUtils.equals(gender,"男")){
+			return 1;
+		}
+		if(StringUtils.equals(gender,"女")){
+			return 2;
+		}
+		return 3;
+	}
+}
