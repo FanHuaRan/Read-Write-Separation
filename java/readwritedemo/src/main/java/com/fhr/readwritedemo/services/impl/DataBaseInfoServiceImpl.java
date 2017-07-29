@@ -10,7 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 
 import com.alibaba.fastjson.JSONArray;
 import com.alibaba.fastjson.JSONObject;
-import com.fhr.readwritedemo.gloable.GloableConfig;
+import com.fhr.readwritedemo.globals.GlobalConfig;
 import com.fhr.readwritedemo.models.DataBaseInfo;
 import com.fhr.readwritedemo.models.DataBaseType;
 import com.fhr.readwritedemo.models.DataBaseVisitType;
@@ -25,7 +25,7 @@ public class DataBaseInfoServiceImpl implements IDataBaseInfoService {
 	private static final Logger logger = Logger.getLogger(DataBaseInfoServiceImpl.class);
 
 	@Autowired
-	private GloableConfig gloableConfig = null;
+	private GlobalConfig gloableConfig = null;
 
 	// 获取数据库信息 从配置文件
 	@Override
