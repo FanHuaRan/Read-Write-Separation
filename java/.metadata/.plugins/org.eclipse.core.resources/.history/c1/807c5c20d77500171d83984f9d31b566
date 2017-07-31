@@ -1,0 +1,10 @@
+package com.fhr.readwritedemo.core.services;
+/**
+ * 数据库服务器通信接口
+ * @author fhr
+ * @date
+ */
+public interface IDSCommunicate {
+	
+	
+}

@@ -9,7 +9,7 @@ public class DataBaseInfo implements java.io.Serializable {
 	private static final long serialVersionUID = 8611633278205294077L;
 	// 数据库服务器的地址
 	private final String host;
-	// 数据库路径
+	// 数据库访问地址
 	private final String url;
 	// 用户名
 	private final String user;

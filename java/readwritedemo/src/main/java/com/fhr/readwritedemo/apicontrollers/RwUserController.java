@@ -20,7 +20,6 @@ import io.swagger.annotations.ApiResponses;
 
 /**
  * 用户API控制器
- * 
  * @author fhr
  * @date 2017/07/29
  */
@@ -31,15 +30,15 @@ public class RwUserController {
 
 	@Autowired
 	private IRwUserInfoService rwUserInfoService;
-
-	@ApiOperation(notes = "find all", httpMethod = "Get", value = "查询所有用户信息")
+	//注意httpmethod是必不可少的 不然swagger会把7个http方法都写到文档里面去
+	@ApiOperation(notes = "find all",httpMethod="GET",value = "查询所有用户信息")
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public List<RwUserInfo> findAll() {
 		return rwUserInfoService.findAll();
 	}
 	
-	@ApiOperation(notes = "find By Id", httpMethod = "Get", value = "根据ID查询用户信息")
+	@ApiOperation(notes = "find By Id",httpMethod="GET",value = "根据ID查询用户信息")
 	@ApiResponses(value = {@ApiResponse(code = 404,message = "User not found") })
 	@RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
@@ -47,21 +46,21 @@ public class RwUserController {
 		return rwUserInfoService.findById(id);
 	}
 	
-	@ApiOperation(notes = "delete By Id", httpMethod = "Post", value = "根据ID删除用户信息")
+	@ApiOperation(notes = "delete By Id",httpMethod="POST",value = "根据ID删除用户信息")
 	@RequestMapping(value = "/delete", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteById(Object id) {
 		rwUserInfoService.deleteById(id);
 	}
 	
-	@ApiOperation(notes = "update", httpMethod = "Post", value = "更新用户信息")
+	@ApiOperation(notes = "update", httpMethod="POST",value = "更新用户信息")
 	@RequestMapping(value = "/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public void update(RwUserInfo rwUserInfo) {
 		rwUserInfoService.update(rwUserInfo);
 	}
 	
-	@ApiOperation(notes = "save", httpMethod = "Post", value = "保存用户信息")
+	@ApiOperation(notes = "save", httpMethod="POST",value = "保存用户信息")
 	@RequestMapping(value = "/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public RwUserInfo save(RwUserInfo rwUserInfo) {
@@ -70,7 +69,7 @@ public class RwUserController {
 		return rwUserInfo;
 	}
 	
-	@ApiOperation(notes = "find By Page", httpMethod = "Get", value = "分页查询")
+	@ApiOperation(notes = "find By Page", httpMethod="GET",value = "分页查询",response=List.class)
 	@RequestMapping(value = "/page", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public List<RwUserInfo> findByPage(int pageIndex, int count) {

@@ -1,0 +1,14 @@
+package com.fhr.readwritedemo.core.services.impl;
+
+import com.fhr.readwritedemo.core.services.IDSCommunicate;
+import com.fhr.readwritedemo.dtomodels.OSystemMonitInfo;
+
+public class DSCommunicateImpl implements IDSCommunicate {
+
+	@Override
+	public OSystemMonitInfo getInfo(String host, int port) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

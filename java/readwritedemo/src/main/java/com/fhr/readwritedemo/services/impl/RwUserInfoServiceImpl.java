@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
-import com.alibaba.druid.sql.dialect.oracle.ast.clause.ModelClause.ReturnRowsClause;
 import com.fhr.readwritedemo.dtoconverters.RwUserInfoConverter;
 import com.fhr.readwritedemo.dtomodels.RwUserInfo;
 import com.fhr.readwritedemo.exceptions.ErrorException;
@@ -18,9 +17,8 @@ import com.fhr.readwritedemo.services.IRwUserInfoService;
 
 /**
  * rwuser服务实现（数据访问、事务处理、错误处理的大一统）
- * 
  * @author fhr
- * @date
+ * @date 2017/07/31
  */
 @Service
 public class RwUserInfoServiceImpl implements IRwUserInfoService {
@@ -35,7 +33,7 @@ public class RwUserInfoServiceImpl implements IRwUserInfoService {
 		try {
 			rwUsers = rwUserRepository.findAll();
 		} catch (SQLException e) {
-			throw new ErrorException(HttpStatus.BAD_GATEWAY, "服务端数据库连接异常");
+			throw new ErrorException(HttpStatus.BAD_GATEWAY, "数据库连接异常");
 		}
 		return rwUserInfoConverter.convert(rwUsers);
 	}
@@ -49,7 +47,7 @@ public class RwUserInfoServiceImpl implements IRwUserInfoService {
 			}
 			return rwUserInfoConverter.convert(rwUser);
 		} catch (SQLException exception) {
-			throw new ErrorException(HttpStatus.BAD_GATEWAY, "服务端数据库连接异常");
+			throw new ErrorException(HttpStatus.BAD_GATEWAY, "数据库连接异常");
 		}
 	}
 
@@ -58,7 +56,7 @@ public class RwUserInfoServiceImpl implements IRwUserInfoService {
 		try {
 			rwUserRepository.deleteById(id);
 		} catch (SQLException exception) {
-			throw new ErrorException(HttpStatus.BAD_GATEWAY, "服务端数据库连接异常");
+			throw new ErrorException(HttpStatus.BAD_GATEWAY, "数据库连接异常");
 		}
 	}
 
@@ -67,7 +65,7 @@ public class RwUserInfoServiceImpl implements IRwUserInfoService {
 		try {
 			rwUserRepository.update(rwUserInfoConverter.convert(rwUserInfo));
 		} catch (SQLException exception) {
-			throw new ErrorException(HttpStatus.BAD_GATEWAY, "服务端数据库连接异常");
+			throw new ErrorException(HttpStatus.BAD_GATEWAY, "数据库连接异常");
 		}
 	}
 
@@ -76,7 +74,7 @@ public class RwUserInfoServiceImpl implements IRwUserInfoService {
 		try {
 			return rwUserRepository.save(rwUserInfoConverter.convert(rwUserInfo));
 		} catch (SQLException exception) {
-			throw new ErrorException(HttpStatus.BAD_GATEWAY, "服务端数据库连接异常");
+			throw new ErrorException(HttpStatus.BAD_GATEWAY, "数据库连接异常");
 		}
 	}
 
@@ -85,7 +83,7 @@ public class RwUserInfoServiceImpl implements IRwUserInfoService {
 		try {
 			return rwUserInfoConverter.convert(rwUserRepository.findByPage(pageIndex, count));
 		} catch (SQLException exception) {
-			throw new ErrorException(HttpStatus.BAD_GATEWAY, "服务端数据库连接异常");
+			throw new ErrorException(HttpStatus.BAD_GATEWAY, "数据库连接异常");
 		}
 	}
 

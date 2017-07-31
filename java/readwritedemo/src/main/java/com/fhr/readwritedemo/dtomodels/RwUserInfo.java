@@ -5,9 +5,8 @@ import io.swagger.annotations.ApiModelProperty;
 
 /**
  * 用户信息
- * 
  * @author fhr
- * @date
+ * @date 2017/07/29
  */
 @ApiModel(value="用户信息",description="关于用户信息的对象")
 public class RwUserInfo implements java.io.Serializable {

@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.fhr.readwritedemo.core.services.IConnectionGetService;
 import com.fhr.readwritedemo.core.services.ICustomJdbcOperations;
@@ -17,6 +18,7 @@ import com.fhr.readwritedemo.utils.JdbcTool;
  * @author fhr
  * @date
  */
+@Service
 public class ReadWriteJdbcTemplate implements ICustomJdbcOperations {
 	//分页查询语句生成器
 	@Autowired
