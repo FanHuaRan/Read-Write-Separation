@@ -30,7 +30,11 @@ public class RwUser implements java.io.Serializable {
 	public RwUser(String name, short age, short gender, String email) {
 		this(-1, name, age, gender, email);
 	}
-
+	
+	public RwUser(){
+		
+	}
+	
 	public int getUserId() {
 		return userId;
 	}

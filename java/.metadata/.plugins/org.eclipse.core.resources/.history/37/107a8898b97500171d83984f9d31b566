@@ -1,0 +1,23 @@
+package com.fhr.readwritedemo.core.services.impl;
+
+import java.util.List;
+
+import com.fhr.readwritedemo.core.services.IPageQueryCreateStrategy;
+
+public class MSSqlPageQueryCreateStrategy implements IPageQueryCreateStrategy{
+
+	@Override
+	public String createSimpleQuery(String tableName, int pageIndex, int count,List<String> aescFields,List<String> descFields) {
+		int fromIndex=pageIndex*count;
+		int toIndex=fromIndex+count;
+		
+		StringBuilder builder=new StringBuilder(String.format("select * from %s ",tableName));
+		aesFields
+		if(aesFields!=null)
+		return null;
+	}
+	
+	
+	
+	
+}

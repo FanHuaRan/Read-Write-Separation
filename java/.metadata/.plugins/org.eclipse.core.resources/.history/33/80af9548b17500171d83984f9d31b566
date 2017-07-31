@@ -1,0 +1,76 @@
+package com.fhr.readwritedemo.repositorys.impl;
+
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.fhr.readwritedemo.core.services.ICustomJdbcOperations;
+import com.fhr.readwritedemo.models.RwUser;
+import com.fhr.readwritedemo.repositorys.IRwUserRepository;
+/**
+ * 用户数据访问逻辑实现
+ * @author fhr
+ * @date
+ */
+@Repository
+public class RwUserRepositoryImpl implements IRwUserRepository {
+	public static int ss;
+	
+	@Autowired
+	private ICustomJdbcOperations jdbcOperations=null;
+	
+	@Override
+	public List<RwUser> findAll() throws SQLException {
+		List<Map<String,Object>> values=jdbcOperations.findMoreResultByMap("select * from rwuser", null);
+		return values.stream()
+				.map(value->createRwUser(value))
+				.collect(Collectors.toList());
+	}
+
+	@Override
+	public RwUser findById(Object id) {
+		return createRwUser(jdbcOperations.findSingleResultByMap("select * from rwuser where userid=?", id));
+	}
+
+	@Override
+	public void deleteById(Object id) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void update(RwUser rwUserInfo) {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public Object save(RwUser rwUserInfo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<RwUser> findByPage(int pageIndex, int count) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public RwUser createRwUser(Map<String,Object> value){
+		if(value==null){
+			return null;
+		}
+		RwUser user=new RwUser();
+		user.setUserId((int)value.get("userid"));
+		user.setAge((short)value.get("age"));
+		user.setGender((short)value.get("gender"));
+		user.setName((String)value.get("name"));
+		user.setEmail((String)value.get("email"));
+		return user;
+	}
+
+}

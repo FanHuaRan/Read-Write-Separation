@@ -302,7 +302,7 @@ public class JdbcTool {
 	 * @return
 	 * @throws SQLException
 	 */
-	public static boolean deleteRecord(Connection connection,String tableName, String primaryKey, int id) throws SQLException {
+	public static boolean deleteRecord(Connection connection,String tableName, String primaryKey, Object id) throws SQLException {
 		String sql = createNormalDeleteSql(tableName, primaryKey);
 		try(PreparedStatement pstmt=connection.prepareStatement(sql);) {
 			pstmt.setObject(1, id);
@@ -313,12 +313,12 @@ public class JdbcTool {
 	
 	/**
 	 * 得到表主键名
+	 * @param connection
 	 * @param tbname
-	 * @param con
 	 * @return
 	 * @throws SQLException
 	 */
-	public static String getPrimaryKeyName(String tableName,Connection connection) throws SQLException {
+	public static String getPrimaryKeyName(Connection connection,String tableName) throws SQLException {
 		// 元数据信息
 		DatabaseMetaData dmd = connection.getMetaData();
 		// 得到主键
@@ -333,13 +333,13 @@ public class JdbcTool {
 	}
 	/**
 	 * 获取表中主键最大值
+	 * @param connection
 	 * @param tableName
 	 * @param pkName
-	 * @param connection
 	 * @return
 	 * @throws SQLException 
 	 */
-	private int getMaxPkId(String tableName,String pkName,Connection connection) throws SQLException{
+	public static int getMaxPkId(Connection connection,String tableName,String pkName) throws SQLException{
 		String sql = String.format("select max(%s) as %s from %s, args)", pkName, pkName, tableName);
 		int maxId=0;
 		try (Statement sm = connection.createStatement(); 
@@ -352,11 +352,11 @@ public class JdbcTool {
 	}
 	/**
 	 * 执行简单查询 这儿就不能释放资源了
-	 * @param sql
 	 * @param connection
+	 * @param sql
 	 * @return
 	 */
-	public static ResultSet simpleQuery(String sql,Connection connection){
+	public static ResultSet simpleQuery(Connection connection,String sql){
 		try{
 			PreparedStatement statement = connection.prepareStatement(sql);
 			return 	statement.executeQuery();
@@ -402,7 +402,6 @@ public class JdbcTool {
 	 * 根据sql和参数数组创建PreparedStatement
 	 * @param sql
 	 * @param params
-	 * @param connection
 	 * @return
 	 * @throws SQLException
 	 */

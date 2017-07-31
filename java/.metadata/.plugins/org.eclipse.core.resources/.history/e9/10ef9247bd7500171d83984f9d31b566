@@ -1,0 +1,16 @@
+package com.fhr.readwritedemo.core.services.impl;
+
+import java.util.List;
+
+import com.fhr.readwritedemo.core.services.IPageQueryCreateStrategy;
+
+public class MSSqlPageQueryCreateStrategy implements IPageQueryCreateStrategy {
+
+	@Override
+	public String createSimpleQuery(String tableName, int pageIndex, int count, List<String> ascFields,
+			List<String> descFields) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}

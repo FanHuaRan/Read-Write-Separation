@@ -1,0 +1,191 @@
+package com.fhr.readwritedemo.core.services;
+
+import java.sql.Connection;
+import java.sql.DatabaseMetaData;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.ResultSetMetaData;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import org.springframework.jdbc.core.JdbcTemplate;
+
+/**
+ * 自定义jdbcTemplate接口
+ * @author fhr
+ * @date
+ */
+public interface ICustomJdbcTemplate {
+	/**
+	 * 通过map插入或者更新记录 主键存在则更新记录，否则插入记录返回自增主键
+	 * @param connection
+	 * @param tableName
+	 * @param fields
+	 * @param pkName
+	 * @param id
+	 * @return 返回主键
+	 * @throws SQLException
+	 */
+	  Object insertOrUpdateRecordByMap(Connection connection,String tableName,Map<String,Object> fields,String pkName,Object id) throws SQLException;
+	/**
+	 * 执行插入记录的sql 返回主键
+	 * @param connection
+	 * @param sql
+	 * @param params
+	 * @return
+	 * @throws SQLException
+	 */
+	  Object insertRecord(Connection connection,String sql, List<Object> params) throws SQLException;
+	/**
+	 * 通过map和主键修改单个记录 返回是否成功标识
+	 * @param connection
+	 * @param tableName
+	 * @param fields
+	 * @param pkName
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
+	  boolean updateRecordByMap(Connection connection,String tableName, Map<String, Object> fields, String pkName, Object id)
+			throws SQLException ;
+	/**
+	 * 通过map插入记录 返回主键
+	 * @param connection
+	 * @param tableName
+	 * @param rowValues
+	 * @return
+	 * @throws SQLException
+	 */
+	  Object insertRecordByMap(Connection connection,String tableName, Map<String, Object> fields) throws SQLException ;
+	/**
+	 * 检查主键是否存在
+	 * @param connection
+	 * @param tableName
+	 * @param pkName
+	 * @param id
+	 * @return 
+	 * @throws SQLException
+	 */
+	  boolean recordExist(Connection connection,String tableName,String pkName,Object id) throws SQLException;
+	
+	/**
+	 * 判断数据库是否存在表
+	 * @param connection
+	 * @param tableName
+	 * @return
+	 * @throws SQLException
+	 */
+	  boolean tableExist(Connection connection,String tableName) throws SQLException;
+	
+	/**
+	 * 判断数据库是否支持批处理 
+	 * @param connection
+	 * @return
+	 */
+      boolean supportBatch(Connection connection) ;
+	
+	/**
+	 * 带事务执行批处理
+	 * @param connection
+	 * @param sqls
+	 * @return
+	 * @throws SQLException
+	 */
+	  int[] executeBatchWithTran(Connection connection,List<String> sqls) throws SQLException;
+
+		  
+   /**
+	 * 执行批处理
+	 * @param connection
+	 * @param sqls
+	 * @return
+	 * @throws SQLException
+	 */
+	  int[] executeBatch(Connection connection,List<String> sqls) throws SQLException;
+	
+	/**
+	 * 执行带参数的sql语句
+	 * @param connection
+	 * @param sql
+	 * @param params
+	 * @return
+	 * @throws SQLException
+	 */
+	  boolean executeSQL(Connection connection,String sql, List<Object> params) throws SQLException;
+	/**
+	 * 执行不带参数的sql语句
+	 * @param connection
+	 * @param sql
+	 * @return
+	 * @throws SQLException 
+	 */
+	  boolean executeSQL(Connection connection,String sql) throws SQLException;
+	/**
+	 * 执行不带参数的多个sql语句，
+	 * 中间有错误则会立即终止，且没有使用事务
+	 * @param connection
+	 * @param sqls
+	 * @return
+	 * @throws SQLException 
+	 */
+	  void executeSQLS(Connection connection,List<String> sqls) throws SQLException;
+		
+	/**
+	 * 查找单个记录
+	 * @param connection
+	 * @param sql
+	 * @param params
+	 * @return
+	 * @throws SQLException
+	 */
+	 Map<String, Object> findSingleResultByMap(Connection connection,String sql, List<Object> params) throws SQLException;
+
+	/**
+	 * 查找多个记录
+	 * @param connection
+	 * @param sql
+	 * @param params
+	 * @return
+	 * @throws SQLException
+	 */
+	 List<Map<String, Object>> findMoreResultByMap(Connection connection,String sql, List<Object> params) throws SQLException;
+	/**
+	 * 删除记录
+	 * @param connection
+	 * @param tableName
+	 * @param primaryKey
+	 * @param id
+	 * @return
+	 * @throws SQLException
+	 */
+	 boolean deleteRecord(Connection connection,String tableName, String primaryKey, int id) throws SQLException;
+
+	/**
+	 * 得到表主键名
+	 * @param tbname
+	 * @param con
+	 * @return
+	 * @throws SQLException
+	 */
+	  String getPrimaryKeyName(String tableName,Connection connection) throws SQLException;
+	/**
+	 * 获取表中主键最大值
+	 * @param tableName
+	 * @param pkName
+	 * @param connection
+	 * @return
+	 * @throws SQLException 
+	 */
+	 int getMaxPkId(String tableName,String pkName,Connection connection) throws SQLException;
+	/**
+	 * 执行简单查询 这儿就不能释放资源了
+	 * @param sql
+	 * @param connection
+	 * @return
+	 */
+	public  ResultSet simpleQuery(String sql,Connection connection);
+}
