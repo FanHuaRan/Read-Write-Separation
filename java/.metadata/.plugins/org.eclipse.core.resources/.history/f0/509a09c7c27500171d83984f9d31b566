@@ -1,0 +1,48 @@
+package com.fhr.readwritedemo.services.impl;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fhr.readwritedemo.dtoconverters.RwUserInfoConverter;
+import com.fhr.readwritedemo.dtomodels.RwUserInfo;
+import com.fhr.readwritedemo.repositorys.IRwUserRepository;
+import com.fhr.readwritedemo.services.IRwUserInfoService;
+@Service
+public class RwUserInfoServiceImpl implements IRwUserInfoService {
+	@Autowired
+	private IRwUserRepository rwUserRepository=null;
+	@Autowired
+	private RwUserInfoConverter rwUserInfoConverter=null;
+	@Override
+	public List<RwUserInfo> findAll() {
+		return null;
+	}
+
+	@Override
+	public RwUserInfo findById(Object id) {
+		return null;
+	}
+
+	@Override
+	public void deleteById(Object id) {
+
+	}
+
+	@Override
+	public void update(RwUserInfo rwUserInfo) {
+
+	}
+
+	@Override
+	public Object save(RwUserInfo rwUserInfo) {
+		return null;
+	}
+
+	@Override
+	public List<RwUserInfo> findByPage(int pageIndex, int count) {
+		return null;
+	}
+
+}

@@ -17,9 +17,9 @@ public interface IRwUserRepository {
 	
 	void deleteById(Object id) throws SQLException;
 	
-	void update(RwUser rwUser) throws SQLException;
+	void update(RwUser rwUserInfo) throws SQLException;
 	
-	Object save(RwUser rwUser) throws SQLException;
+	Object save(RwUser rwUserInfo) throws SQLException;
 	
 	List<RwUser> findByPage(int pageIndex,int count) throws SQLException;
 
