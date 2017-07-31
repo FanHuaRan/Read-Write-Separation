@@ -26,38 +26,42 @@ import io.swagger.annotations.ApiResponses;
  */
 @RestController
 @RequestMapping("/users")
-@Api(value = "/group", description = "群组的相关操作")
+@Api(value = "/users", description = "用户相关操作")
 public class RwUserController {
 
 	@Autowired
 	private IRwUserInfoService rwUserInfoService;
 
-	@ApiOperation(notes = "findall", httpMethod = "Get", value = "查询所有用户信息")
-	@ApiResponses(value = {@ApiResponse(code = 405, message = "invalid input") })
+	@ApiOperation(notes = "find all", httpMethod = "Get", value = "查询所有用户信息")
 	@RequestMapping(produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public List<RwUserInfo> findAll() {
 		return rwUserInfoService.findAll();
 	}
-
+	
+	@ApiOperation(notes = "find By Id", httpMethod = "Get", value = "根据ID查询用户信息")
+	@ApiResponses(value = {@ApiResponse(code = 404,message = "User not found") })
 	@RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public RwUserInfo findById(Object id) {
 		return rwUserInfoService.findById(id);
 	}
-
+	
+	@ApiOperation(notes = "delete By Id", httpMethod = "Post", value = "根据ID删除用户信息")
 	@RequestMapping(value = "/delete", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public void deleteById(Object id) {
 		rwUserInfoService.deleteById(id);
 	}
-
+	
+	@ApiOperation(notes = "update", httpMethod = "Post", value = "更新用户信息")
 	@RequestMapping(value = "/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public void update(RwUserInfo rwUserInfo) {
 		rwUserInfoService.update(rwUserInfo);
 	}
-
+	
+	@ApiOperation(notes = "save", httpMethod = "Post", value = "保存用户信息")
 	@RequestMapping(value = "/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public RwUserInfo save(RwUserInfo rwUserInfo) {
@@ -65,11 +69,11 @@ public class RwUserController {
 		rwUserInfo.setUserId((int) id);
 		return rwUserInfo;
 	}
-
+	
+	@ApiOperation(notes = "find By Page", httpMethod = "Get", value = "分页查询")
 	@RequestMapping(value = "/page", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
 	public List<RwUserInfo> findByPage(int pageIndex, int count) {
 		return rwUserInfoService.findByPage(pageIndex, count);
 	}
-	// 一定要实现分页查询
 }

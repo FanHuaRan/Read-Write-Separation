@@ -9,23 +9,23 @@ import io.swagger.annotations.ApiModelProperty;
  * @author fhr
  * @date
  */
-@ApiModel
+@ApiModel(value="用户信息",description="关于用户信息的对象")
 public class RwUserInfo implements java.io.Serializable {
 	private static final long serialVersionUID = 5263520779883381805L;
 	
-	@ApiModelProperty(value = "用户编号", required = false)
+	@ApiModelProperty(value = "编号", required = false)
 	private int userId;
 	
-	@ApiModelProperty(value = "用户名字", required = true)
+	@ApiModelProperty(value = "名字", required = true)
 	private String name;
 	
-	@ApiModelProperty(value = "用户年龄", required = true)
+	@ApiModelProperty(value = "年龄", required = true)
 	private short age;
 	
-	@ApiModelProperty(value = "用户性别", required = true)
+	@ApiModelProperty(value = "性别", required = true,allowableValues = "男,女,未知")
 	private String gender;
 	
-	@ApiModelProperty(value = "用户邮箱", required = false)
+	@ApiModelProperty(value = "邮箱", required = false)
 	private String email;
 
 	public RwUserInfo(int userId, String name, short age, String gender, String email) {

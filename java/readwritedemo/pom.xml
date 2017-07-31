@@ -141,7 +141,12 @@
             <artifactId>jackson-databind</artifactId>
             <version>2.7.4</version>
     </dependency>
-  
+    <!-- spring rest应用异常处理第三方项目 -->
+    <dependency>
+    	<groupId>cz.jirutka.spring</groupId>
+    	<artifactId>spring-rest-exception-handler</artifactId>
+    	<version>1.2.0</version>
+	</dependency>
    <!-- swagger相关依赖-->
     <dependency>
        <groupId>com.mangofactory</groupId>
