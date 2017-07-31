@@ -8,7 +8,7 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.fhr.readwritedemo.core.services.IConnectionGetService;
+import com.fhr.readwritedemo.core.services.IGetConnection;
 import com.fhr.readwritedemo.core.services.ICustomJdbcOperations;
 import com.fhr.readwritedemo.core.services.IPageQueryCreateStrategy;
 import com.fhr.readwritedemo.utils.JdbcTool;
@@ -25,7 +25,7 @@ public class ReadWriteJdbcTemplate implements ICustomJdbcOperations {
 	private IPageQueryCreateStrategy pageQueryCreateStrategy=null;
 	//连接池管理组件
 	@Autowired
-	private IConnectionGetService connectionGetService = null;
+	private IGetConnection connectionGetService = null;
 
 	@Override
 	public Object insertOrUpdateRecordByMap(String tableName, Map<String, Object> fields, String pkName, Object id)

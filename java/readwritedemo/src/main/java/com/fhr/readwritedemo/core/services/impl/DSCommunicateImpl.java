@@ -5,16 +5,18 @@ import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
 
+import org.apache.log4j.Logger;
+
+import com.fhr.readwritedemo.core.models.dto.OSystemMonitInfo;
 import com.fhr.readwritedemo.core.services.IDSCommunicate;
 import com.fhr.readwritedemo.core.utils.ObjcetSerializableUtils;
-import com.fhr.readwritedemo.dtomodels.OSystemMonitInfo;
 /**
  * 数据库服务器通信实现
  * @author fhr
- * @date
+ * @since 2017/07/31
  */
 public class DSCommunicateImpl implements IDSCommunicate {
-
+	private static final Logger logger=Logger.getLogger(DSCommunicateImpl.class);
 	@Override
 	public OSystemMonitInfo getInfo(String host, int port) {
 			try{
@@ -23,12 +25,12 @@ public class DSCommunicateImpl implements IDSCommunicate {
 				DatagramPacket  datagramPacket=new DatagramPacket(bytes,bytes.length,InetAddress.getByName("localhost"), 16081);
 			    client.send(datagramPacket);
 			    DatagramPacket resultData=getClientDatagramPacket(client);
-				String dataStr = new String(resultData.getData(), 0, resultData.getLength(), "UTF-8");
-				System.out.println(dataStr);
-				OSystemMonitInfo monitInfo=(OSystemMonitInfo) ObjcetSerializableUtils.toObject(bytes);
+				return (OSystemMonitInfo) ObjcetSerializableUtils.toObject(resultData.getData());
 			}catch(Exception e){
+				e.printStackTrace();
+				logger.error("获取数据库服务器运行信息出错",e);
+				return null;
 			}
-			return null;
 		}
 		
 		// 阻塞获取客户端连接

@@ -1,0 +1,31 @@
+package com.fhr.readwritedemo.core.services.impl;
+
+import java.io.IOException;
+import java.util.List;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+
+import com.fhr.readwritedemo.core.models.DataBaseInfo;
+import com.fhr.readwritedemo.core.services.IDSMonitor;
+/**
+ * 基于udp的数据库服务器监控器
+ * @author fhr
+ * @since 2017/07/31
+ */
+public class UdpDSMonitor implements IDSMonitor {
+	
+	private   List<DataBaseInfo> dataBaseInfos;
+	
+	protected final ExecutorService THREAD_POOL = Executors.newCachedThreadPool();
+	
+	@Override
+	public void close() throws IOException {
+		
+	}
+
+	@Override
+	public void start() {
+		
+	}
+
+}

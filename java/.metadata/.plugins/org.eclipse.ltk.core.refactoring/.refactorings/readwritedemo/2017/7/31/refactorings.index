@@ -5,3 +5,6 @@
 1501470627616	Move compilation units
 1501470647485	Rename package 'com.fhr.readwritedemo.globals'
 1501494995974	Rename type 'IDatabaseCommunit'
+1501507603030	Move compilation unit
+1501509011246	Rename type 'IConnectionGetService'
+1501509028313	Rename type 'ConnectionGetServiceImpl'

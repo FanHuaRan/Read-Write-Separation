@@ -21,7 +21,7 @@ public class TestUdpServer {
 	    DatagramPacket resultData=getClientDatagramPacket(client);
 		String dataStr = new String(resultData.getData(), 0, resultData.getLength(), "UTF-8");
 		System.out.println(dataStr);
-		OSystemMonitInfo monitInfo=(OSystemMonitInfo) ObjcetSerializableUtils.toObject(bytes);
+		OSystemMonitInfo monitInfo=(OSystemMonitInfo) ObjcetSerializableUtils.toObject(resultData.getData());
 		System.out.println(monitInfo.getCpuRatio());
 	}
 	

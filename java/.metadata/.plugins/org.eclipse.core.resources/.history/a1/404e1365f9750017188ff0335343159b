@@ -1,0 +1,21 @@
+package com.fhr.readwritedemo.core.services.impl;
+
+import java.io.IOException;
+
+import com.fhr.readwritedemo.core.services.IDSMonitor;
+
+public class UdpDSMonitor implements IDSMonitor {
+
+	@Override
+	public void close() throws IOException {
+		// TODO Auto-generated method stub
+
+	}
+
+	@Override
+	public void start() {
+		// TODO Auto-generated method stub
+
+	}
+
+}

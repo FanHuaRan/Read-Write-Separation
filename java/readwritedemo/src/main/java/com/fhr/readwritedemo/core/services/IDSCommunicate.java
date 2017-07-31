@@ -1,6 +1,6 @@
 package com.fhr.readwritedemo.core.services;
 
-import com.fhr.readwritedemo.dtomodels.OSystemMonitInfo;
+import com.fhr.readwritedemo.core.models.dto.OSystemMonitInfo;
 
 /**
  * 数据库服务器通信接口
