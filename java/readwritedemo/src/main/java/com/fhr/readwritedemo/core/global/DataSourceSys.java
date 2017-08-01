@@ -20,4 +20,6 @@ public class DataSourceSys {
 	// key为host value为DataSource
 	public static Map<String,DataSource> HostReadDataSourcesMap;
 	
+	// 可用的
+	public static List<Integer> ValidReadDataSourceIndex;
 }

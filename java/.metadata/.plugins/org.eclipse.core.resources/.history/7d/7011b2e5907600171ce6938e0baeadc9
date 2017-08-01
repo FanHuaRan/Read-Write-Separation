@@ -1,0 +1,35 @@
+package com.fhr.readwritedemo.utils;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import javax.smartcardio.Card;
+
+import org.junit.Test;
+
+public class RandomAloUtilsTest {
+
+	public static Map<String, Integer> servers = new HashMap<String, Integer>();
+
+	static {
+		servers.put("192.168.20.101", 1);
+		servers.put("192.168.20.102", 2);
+		servers.put("192.168.20.103", 3);
+		servers.put("192.168.20.104", 4);
+	}
+
+	@Test
+	public void testWeightedRandom() {
+		int[]counter=new int[4];
+		for(int i=0;i<20;i++){
+			String result=RandomAloUtils.weightedRandom(servers);
+			int index=Integer.valueOf(result.charAt(13))-1;
+			counter[index]++;
+		}
+		for(int i=0;i<4;i++){
+			System.out.println(String.format("%d :%d",(i+1),counter[i]));
+		}
+	}
+
+}

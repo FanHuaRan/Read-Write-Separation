@@ -1,0 +1,15 @@
+package com.fhr.readwritedemo.utils;
+
+import java.util.Map;
+
+/**
+ * 随机算法辅助工具
+ * @author fhr
+ * @since 2017/08/01
+ */
+public class RandomAloUtils {
+	public static String weightedRandom(Map<String,Integer> source) {
+		
+		return null;
+	}
+}

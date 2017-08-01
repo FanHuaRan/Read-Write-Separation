@@ -1,0 +1,11 @@
+
+public class Program {
+	public static void main(String[]args) {
+		Thread thread=new Thread(()->{
+			while (true) {
+				System.out.println(1);
+			}
+		});
+		thread.start();
+	}
+}

@@ -25,7 +25,7 @@ public class TestUdpServer {
 		System.out.println(monitInfo.getCpuRatio());
 	}
 	
-	// 阻塞获取客户端连接
+	// 阻塞获取返回的数据包
 	private DatagramPacket getClientDatagramPacket(DatagramSocket datagramSocket ) throws IOException {
 		byte[] bufferBytes = new byte[2048];//2kb的获取数据的缓冲区
 		DatagramPacket reveivePacket = new DatagramPacket(bufferBytes, bufferBytes.length);
