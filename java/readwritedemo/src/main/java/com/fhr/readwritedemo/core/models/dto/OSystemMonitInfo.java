@@ -40,6 +40,6 @@ public class OSystemMonitInfo implements Serializable {
 		return monitTime;
 	}
 	public String toString(){
-		return String.format("{memoryratio:%d,cpuratio:%d,monittime:%s}", memoryRatio, cpuRatio,monitTime);
+		return String.format("{memoryratio:%f,cpuratio:%f,monittime:%s}", memoryRatio, cpuRatio,monitTime);
 	}
 }

@@ -12,6 +12,7 @@ import com.fhr.osmonitor.models.OSystemInfo;
 
 /**
  * 通过sigar库实现内存、cpu信息读取
+ * 需要将第三方的dll或者so文件拷贝到jdk安装目录/bin目录下
  * @author fhr
  * @date 2017/06/11 
  */

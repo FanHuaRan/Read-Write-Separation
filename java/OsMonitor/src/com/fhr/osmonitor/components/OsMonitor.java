@@ -40,7 +40,7 @@ public class OsMonitor implements AutoCloseable {
 	public void start() {
 		executorService.scheduleAtFixedRate(() -> {
 			oSystemInfo = SigarOSUtils.getOSystemInfo();// 获取操作系统信息对象
-			logger.info(oSystemInfo.toString()); // 记录日志
+			logger.info(oSystemInfo); // 记录日志
 			eventDeal();// 事件处理
 		}, 0, MonitorConfig.MONIT_INTERVAL, TimeUnit.SECONDS);
 	}

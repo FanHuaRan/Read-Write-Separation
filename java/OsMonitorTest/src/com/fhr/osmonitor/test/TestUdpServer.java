@@ -22,7 +22,7 @@ public class TestUdpServer {
 		String dataStr = new String(resultData.getData(), 0, resultData.getLength(), "UTF-8");
 		System.out.println(dataStr);
 		OSystemMonitInfo monitInfo=(OSystemMonitInfo) ObjcetSerializableUtils.toObject(resultData.getData());
-		System.out.println(monitInfo.getCpuRatio());
+		System.out.println(monitInfo);
 	}
 	
 	// 阻塞获取返回的数据包

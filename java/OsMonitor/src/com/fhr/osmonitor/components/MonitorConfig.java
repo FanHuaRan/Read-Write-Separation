@@ -1,5 +1,6 @@
 package com.fhr.osmonitor.components;
 
+import java.io.InputStream;
 import java.util.Properties;
 
 import org.apache.commons.lang.StringUtils;
@@ -45,8 +46,9 @@ public class MonitorConfig {
 		double memSer = 0.95d;
 		double cpuWarn = 0.9d;
 		double cpuSer = 0.95d;
-		try {
-			Properties properties = PropertiesUtils.getPropertiesObj(ResourceUtils.getAbsoluteFileName(CONFIG_NAME));
+		try(InputStream inputStream=ResourceUtils.getAbsoluteFile(CONFIG_NAME)) {
+//			Properties properties = PropertiesUtils.getPropertiesObj(ResourceUtils.getAbsoluteFileName(CONFIG_NAME));
+			Properties properties = PropertiesUtils.getPropertiesObj(inputStream);
 			String intervalStr = PropertiesUtils.getProperty(properties, "monit.interval");
 			if (StringUtils.isNotEmpty(intervalStr) && StringUtils.isNumeric(intervalStr)) {
 				interval = Integer.valueOf(intervalStr);

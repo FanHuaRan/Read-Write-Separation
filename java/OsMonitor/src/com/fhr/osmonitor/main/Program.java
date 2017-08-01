@@ -46,8 +46,8 @@ public class Program {
 		Thread.sleep(1000);
 		System.out.println("请输入q退出程序");
 		while ((char) System.in.read() != 'q') {}
-		try{
+//		try{
 			monitThread.interrupt();
-		}catch(Exception e){}
+//		}catch(Exception e){}
 	}
 }

@@ -69,7 +69,7 @@ public class OSystemInfo implements Serializable {
 
 	@Override
 	public String toString() {
-		return String.format("{totalMemory：%d,usedmemory:%d,freememory:%d,memoryratio:%d,cpuratio:%d,monittime:%s}", totalMemory,
+		return String.format("{totalMemory：%d,usedmemory:%d,freememory:%d,memoryratio:%f,cpuratio:%f,monittime:%s}", totalMemory,
 				usedMemory, freeMemory, memoryRatio, cpuRatio,monitTime);
 	}
 }
