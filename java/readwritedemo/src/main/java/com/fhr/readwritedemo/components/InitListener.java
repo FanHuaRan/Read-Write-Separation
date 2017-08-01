@@ -9,6 +9,9 @@ import org.apache.log4j.Logger;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.fhr.readwritedemo.core.services.IDSMonitor;
+import com.fhr.readwritedemo.core.services.impl.UdpDSMonitor;
+
 /**
  * web生命周期监听器
  * @author fhr
@@ -17,32 +20,38 @@ import org.springframework.web.context.support.WebApplicationContextUtils;
 public class InitListener implements ServletContextListener {
 	private static final Logger logger = Logger.getLogger(InitListener.class);
 
+	// 数据库服务器监控器
+	private IDSMonitor dsMonitor = null;
 
+	// web结束
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
+		//关闭监控
+		try {
+			dsMonitor.close();
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
 	}
 
+	//web初始化
 	@Override
 	public void contextInitialized(ServletContextEvent arg0) {
-		//获取spring上下文
+		// 获取spring上下文
 		WebApplicationContext springContext = WebApplicationContextUtils
 				.getWebApplicationContext(arg0.getServletContext());
 		if (springContext == null) {
 			logger.error("初始化错误 未找到spring上下文");
-		} /*else {
-			officeToPDF = (IOfficeToPDFComponent) springContext.getBean(BaseOFOfficeToPDFComponent.class);
-			if (officeToPDF != null) {
-				new Thread(() -> {
-					try {
-						officeToPDF.start();
-					} catch (InterruptedException e) {
-						e.printStackTrace();
-					}
-				}).start();
+		} else {
+			// 获取数据库服务器监控器
+			dsMonitor = (IDSMonitor) springContext.getBean(UdpDSMonitor.class);
+			if (dsMonitor != null) {
+				// 运行监控程序
+				dsMonitor.start();
 			} else {
 				logger.error("初始化错误 未找到office服务组件");
 			}
-		}*/
+		}
 	}
 
 }

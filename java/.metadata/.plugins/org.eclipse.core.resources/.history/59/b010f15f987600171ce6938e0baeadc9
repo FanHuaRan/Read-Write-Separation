@@ -1,0 +1,29 @@
+package com.fhr.readwritedemo.core.global;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import com.sun.corba.se.spi.activation.Server;
+
+/**
+ * 数据库环境 个人感觉这儿最好全是静态
+ * 
+ * @author fhr
+ * @since 2017/07/29
+ */
+public class DataSourceSys {
+	// 用于写数据的数据源
+	public static DataSource WriteDataSource;
+
+	// 用于读数据的数据源
+	public static List<DataSource> ReadDataSources;
+
+	// key为host value为DataSource
+	public static Map<String, DataSource> HostReadDataSourcesMap;
+	
+	// 数据库服务器权重 暂时使用volatile关键字保证线程安全 
+	// 每次检测完之后重新计算替换ServerWeights 
+	public static volatile Map<String, Integer> ServerWeights;
+}

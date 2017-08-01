@@ -65,13 +65,13 @@ public class OsMonitor implements AutoCloseable {
 	// 判断是否处于警告状态
 	private boolean inWarin(OSystemInfo oSystemInfo) {
 		return oSystemInfo.getCpuRatio() > MonitorConfig.CPU_WARING_RATE
-				|| oSystemInfo.getMemoryRatio() > MonitorConfig.CPU_WARING_RATE;
+				|| oSystemInfo.getMemoryRatio() > MonitorConfig.MEMORY_WARING_RATE;
 	}
 
 	// 判断是否处于严重状态
 	private boolean inSerious(OSystemInfo oSystemInfo) {
-		return oSystemInfo.getCpuRatio() > MonitorConfig.CPU_WARING_RATE
-				|| oSystemInfo.getMemoryRatio() > MonitorConfig.CPU_WARING_RATE;
+		return oSystemInfo.getCpuRatio() > MonitorConfig.CPU_SERIOUS_RATE
+				|| oSystemInfo.getMemoryRatio() > MonitorConfig.MEMORY_SERIOUS_RATE;
 	}
 
 	// 处理事件

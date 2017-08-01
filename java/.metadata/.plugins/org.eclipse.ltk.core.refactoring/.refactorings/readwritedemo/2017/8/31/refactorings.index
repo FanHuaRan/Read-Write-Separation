@@ -1,2 +1,10 @@
 1501572751721	Move compilation unit
 1501572763494	Delete element
+1501578405708	Rename type 'ICreateDataSourceService'
+1501578420075	Rename method 'createDataSource'
+1501578440610	Rename type 'CreateDataSourceServiceImpl'
+1501578532709	Delete element
+1501578730869	Encapsulate field 'WriteDataSource'
+1501578773752	Encapsulate field 'ReadDataSources'
+1501578789689	Encapsulate field 'HostReadDataSourcesMap'
+1501578851554	Encapsulate field 'ServerWeights'

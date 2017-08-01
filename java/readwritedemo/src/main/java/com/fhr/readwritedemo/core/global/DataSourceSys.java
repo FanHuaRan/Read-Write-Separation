@@ -5,21 +5,66 @@ import java.util.Map;
 
 import javax.sql.DataSource;
 
-/** 
+import com.fhr.readwritedemo.utils.RandomAloUtils;
+
+/**
  * 数据库环境 个人感觉这儿最好全是静态
  * @author fhr
  * @since 2017/07/29
- */ 
+ */
 public class DataSourceSys {
 	// 用于写数据的数据源
-	public  static DataSource  WriteDataSource;
-	
+	private static DataSource WriteDataSource;
+
 	// 用于读数据的数据源
-	public  static List<DataSource> ReadDataSources;
-	
+	private static List<DataSource> ReadDataSources;
+
 	// key为host value为DataSource
-	public static Map<String,DataSource> HostReadDataSourcesMap;
+	private static Map<String, DataSource> HostReadDataSourcesMap;
 	
-	// 可用的
-	public static List<Integer> ValidReadDataSourceIndex;
+	// 数据库服务器权重 暂时使用volatile关键字保证线程安全 
+	// 每次检测完之后重新计算替换ServerWeights 
+	private static volatile Map<String, Integer> ServerWeights;
+	
+	// 通过算法计算出合适的数据库源
+	public static DataSource getReadDataSource(){
+	 	String correctHost=RandomAloUtils.weightedRandom(ServerWeights);
+	 	return HostReadDataSourcesMap.get(correctHost);
+	}
+	
+	//getters setters
+	public static DataSource getWriteDataSource() {
+		return WriteDataSource;
+	}
+
+	public static void setWriteDataSource(DataSource writeDataSource) {
+		WriteDataSource = writeDataSource;
+	}
+
+	public static List<DataSource> getReadDataSources() {
+		return ReadDataSources;
+	}
+
+	public static void setReadDataSources(List<DataSource> readDataSources) {
+		ReadDataSources = readDataSources;
+	}
+
+	public static Map<String, DataSource> getHostReadDataSourcesMap() {
+		return HostReadDataSourcesMap;
+	}
+
+	public static void setHostReadDataSourcesMap(Map<String, DataSource> hostReadDataSourcesMap) {
+		HostReadDataSourcesMap = hostReadDataSourcesMap;
+	}
+
+	public static Map<String, Integer> getServerWeights() {
+		return ServerWeights;
+	}
+
+	public static void setServerWeights(Map<String, Integer> serverWeights) {
+		ServerWeights = serverWeights;
+	}
+	
+	
+	
 }
