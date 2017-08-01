@@ -1,8 +1,0 @@
-package com.fhr.osmonitor.utils;
-
-public class Snippet {
-	public static void main(String[] args) {
-		SigarOSTool
-	}
-}
-

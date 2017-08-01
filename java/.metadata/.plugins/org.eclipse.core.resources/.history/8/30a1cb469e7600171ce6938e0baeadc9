@@ -18,7 +18,7 @@ public class RwUser implements java.io.Serializable {
 	// 邮箱
 	private String email;
 
-	public RwUser(long userId, String name, short age, short gender, String email) {
+	public RwUser(int userId, String name, short age, short gender, String email) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -35,11 +35,11 @@ public class RwUser implements java.io.Serializable {
 		
 	}
 	
-	public long getUserId() {
+	public int getUserId() {
 		return userId;
 	}
 
-	public void setUserId(long userId) {
+	public void setUserId(int userId) {
 		this.userId = userId;
 	}
 

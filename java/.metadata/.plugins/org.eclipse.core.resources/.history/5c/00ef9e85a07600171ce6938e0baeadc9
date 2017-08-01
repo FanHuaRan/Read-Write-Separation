@@ -1,0 +1,5 @@
+[
+ {"host":"101.200.55.205","url":"101.200.55.205:3306","user":"root","password":"123","databasetype":2,"visittype":1},
+ {"host":"59.110.159.142","url":"101.200.55.205:3306","user":"root","password":"uAiqwVwjJ8-i","databasetype":2,"visittype":2},
+ {"host":"localhost","localhost:3306/readwritedemo","user":"root","password":"123","databasetype":2,"visittype":2},
+]

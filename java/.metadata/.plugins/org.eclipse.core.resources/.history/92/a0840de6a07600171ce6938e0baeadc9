@@ -13,7 +13,7 @@ public class NotFoundException extends RuntimeException {
 	
 	public NotFoundException(HttpStatus httpStatus,String message){
 		super(message);
-		this.httpStatus=httpStatus;
+		this.setHttpStatus(httpStatus);
 	}
 
 	public HttpStatus getHttpStatus() {

@@ -8,3 +8,5 @@
 1501578773752	Encapsulate field 'ReadDataSources'
 1501578789689	Encapsulate field 'HostReadDataSourcesMap'
 1501578851554	Encapsulate field 'ServerWeights'
+1501581876416	Encapsulate field 'httpStatus'
+1501581920529	Encapsulate field 'httpStatus'
