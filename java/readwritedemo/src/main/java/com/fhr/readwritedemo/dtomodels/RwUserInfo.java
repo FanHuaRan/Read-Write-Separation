@@ -13,13 +13,13 @@ public class RwUserInfo implements java.io.Serializable {
 	private static final long serialVersionUID = 5263520779883381805L;
 	
 	@ApiModelProperty(value = "编号", required = false)
-	private int userId;
+	private long userId;
 	
 	@ApiModelProperty(value = "名字", required = true)
 	private String name;
 	
 	@ApiModelProperty(value = "年龄", required = true)
-	private short age;
+	private int age;
 	
 	@ApiModelProperty(value = "性别", required = true,allowableValues = "男,女,未知")
 	private String gender;
@@ -27,7 +27,7 @@ public class RwUserInfo implements java.io.Serializable {
 	@ApiModelProperty(value = "邮箱", required = false)
 	private String email;
 
-	public RwUserInfo(int userId, String name, short age, String gender, String email) {
+	public RwUserInfo(long userId, String name, int age, String gender, String email) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -36,15 +36,19 @@ public class RwUserInfo implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public RwUserInfo(String name, short age, String gender, String email) {
+	public RwUserInfo(String name, int age, String gender, String email) {
 		this(-1, name, age, gender, email);
 	}
-
-	public int getUserId() {
+	
+	public RwUserInfo(){
+		
+	}
+	
+	public long getUserId() {
 		return userId;
 	}
 
-	public void setUserId(int userId) {
+	public void setUserId(long userId) {
 		this.userId = userId;
 	}
 
@@ -56,11 +60,11 @@ public class RwUserInfo implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public short getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(short age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 

@@ -12,13 +12,13 @@ public class RwUser implements java.io.Serializable {
 	// 姓名
 	private String name;
 	// 年龄
-	private short age;
+	private int age;
 	// 性别
-	private short gender;
+	private int gender;
 	// 邮箱
 	private String email;
 
-	public RwUser(long userId, String name, short age, short gender, String email) {
+	public RwUser(long userId, String name, int age, int gender, String email) {
 		super();
 		this.userId = userId;
 		this.name = name;
@@ -27,7 +27,7 @@ public class RwUser implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public RwUser(String name, short age, short gender, String email) {
+	public RwUser(String name, int age, int gender, String email) {
 		this(-1, name, age, gender, email);
 	}
 	
@@ -51,19 +51,19 @@ public class RwUser implements java.io.Serializable {
 		this.name = name;
 	}
 
-	public short getAge() {
+	public int getAge() {
 		return age;
 	}
 
-	public void setAge(short age) {
+	public void setAge(int age) {
 		this.age = age;
 	}
 
-	public short getGender() {
+	public int getGender() {
 		return gender;
 	}
 
-	public void setGender(short gender) {
+	public void setGender(int gender) {
 		this.gender = gender;
 	}
 

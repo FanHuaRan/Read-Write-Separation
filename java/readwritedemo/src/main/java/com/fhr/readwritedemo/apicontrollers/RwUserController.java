@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -42,37 +44,37 @@ public class RwUserController {
 	@ApiResponses(value = {@ApiResponse(code = 404,message = "User not found") })
 	@RequestMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	public RwUserInfo findById(Object id) {
+	public RwUserInfo findById(@PathVariable Long id) {
 		return rwUserInfoService.findById(id);
 	}
 	
 	@ApiOperation(notes = "delete By Id",httpMethod="POST",value = "根据ID删除用户信息")
-	@RequestMapping(value = "/delete", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
+	@RequestMapping(value = "/delete/{id}", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	public void deleteById(Object id) {
+	public void deleteById(@PathVariable Long id) {
 		rwUserInfoService.deleteById(id);
 	}
 	
 	@ApiOperation(notes = "update", httpMethod="POST",value = "更新用户信息")
 	@RequestMapping(value = "/update", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	public void update(RwUserInfo rwUserInfo) {
+	public void update(@RequestBody RwUserInfo rwUserInfo) {
 		rwUserInfoService.update(rwUserInfo);
 	}
 	
 	@ApiOperation(notes = "save", httpMethod="POST",value = "保存用户信息")
 	@RequestMapping(value = "/save", method = RequestMethod.POST, produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	public RwUserInfo save(RwUserInfo rwUserInfo) {
+	public RwUserInfo save(@RequestBody RwUserInfo rwUserInfo) {
 		Object id = rwUserInfoService.save(rwUserInfo);
-		rwUserInfo.setUserId((int) id);
+		rwUserInfo.setUserId((long) id);
 		return rwUserInfo;
 	}
 	
 	@ApiOperation(notes = "find By Page", httpMethod="GET",value = "分页查询",response=List.class)
 	@RequestMapping(value = "/page", produces = MediaType.APPLICATION_JSON_VALUE)
 	@ResponseStatus(HttpStatus.OK)
-	public List<RwUserInfo> findByPage(int pageIndex, int count) {
+	public List<RwUserInfo> findByPage(Integer pageIndex, Integer count) {
 		return rwUserInfoService.findByPage(pageIndex, count);
 	}
 }

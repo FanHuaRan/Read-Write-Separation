@@ -20,7 +20,6 @@ import com.fhr.readwritedemo.repositorys.IRwUserRepository;
  */
 @Repository
 public class RwUserRepositoryImpl implements IRwUserRepository {
-	public static int ss;
 	
 	@Autowired
 	private ICustomJdbcOperations jdbcOperations=null;
@@ -59,7 +58,6 @@ public class RwUserRepositoryImpl implements IRwUserRepository {
 	public Object save(RwUser rwUserInfo) throws SQLException {
 		Map<String,Object> fields=new HashMap<>();
 		fields.put("name", rwUserInfo.getName());
-		fields.put("name", rwUserInfo.getName());
 		fields.put("age", rwUserInfo.getAge());
 		fields.put("gender", rwUserInfo.getGender());
 		fields.put("email", rwUserInfo.getEmail());
@@ -79,9 +77,9 @@ public class RwUserRepositoryImpl implements IRwUserRepository {
 			return null;
 		}
 		RwUser user=new RwUser();
-		user.setUserId((int)value.get("userid"));
-		user.setAge((short)value.get("age"));
-		user.setGender((short)value.get("gender"));
+		user.setUserId((long)value.get("userid"));
+		user.setAge((int)value.get("age"));
+		user.setGender((int)value.get("gender"));
 		user.setName((String)value.get("name"));
 		user.setEmail((String)value.get("email"));
 		return user;

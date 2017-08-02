@@ -20,14 +20,14 @@ public class RwUserInfoConverter {
 		if (rwUser == null) {
 			return null;
 		}
-		return new RwUserInfo(rwUser.getName(), rwUser.getAge(), getGender(rwUser.getGender()), rwUser.getEmail());
+		return new RwUserInfo(rwUser.getUserId(),rwUser.getName(), rwUser.getAge(), getGender(rwUser.getGender()), rwUser.getEmail());
 	}
 
 	public RwUser convert(RwUserInfo rwUserInfo){
 		if(rwUserInfo==null){
 			return null;
 		}
-		return new RwUser(rwUserInfo.getName(), rwUserInfo.getAge(), getGender(rwUserInfo.getGender()),rwUserInfo.getEmail());
+		return new RwUser(rwUserInfo.getUserId(),rwUserInfo.getName(), rwUserInfo.getAge(), getGender(rwUserInfo.getGender()),rwUserInfo.getEmail());
 	}
 
 	public List<RwUserInfo> convert(List<RwUser> rwUsers) {
@@ -52,7 +52,7 @@ public class RwUserInfoConverter {
 		return rwUsers;
 	}
 
-	private String getGender(short gender) {
+	private String getGender(int gender) {
 		if (gender == 1) {
 			return "男";
 		}
