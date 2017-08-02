@@ -20,19 +20,16 @@ public class GlobalConfig {
 	public final String databaseConfigFile;
 	// servlet上下文
 	private ServletContext servletContext;
+	
 	@Autowired
 	public GlobalConfig(ServletContext servletContext){
 		this.servletContext=servletContext;
 		webRoot = servletContext.getRealPath("/");
 		databaseConfigFile = webRoot + RELATIVE_DATABASE_CONFIG_FILE;
 	}
-
+	
 	public ServletContext getServletContext() {
 		return servletContext;
-	}
-
-	public void setServletContext(ServletContext servletContext) {
-		this.servletContext = servletContext;
 	}
 
 	public String getWebRoot() {

@@ -20,7 +20,7 @@ import com.fhr.readwritedemo.core.services.IDataBaseInfoService;
 /**
  * 数据库信息服务实现
  * @author fhr
- * @date 2017/07/29
+ * @since 2017/07/29
  */
 @Service
 public class DataBaseInfoServiceImpl implements IDataBaseInfoService {

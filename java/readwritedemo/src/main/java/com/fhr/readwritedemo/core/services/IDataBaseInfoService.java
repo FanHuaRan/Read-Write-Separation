@@ -7,9 +7,13 @@ import com.fhr.readwritedemo.core.models.DataBaseInfo;
 /**
  * 数据库信息服务
  * @author fhr
- * @date 2017/07/29
+ * @since 2017/07/29
  */
 public interface IDataBaseInfoService {
-
+	
+	/**
+	 * 获取所有的数据库信息
+	 * @return
+	 */
 	List<DataBaseInfo> getDataBaseInfos();
 }

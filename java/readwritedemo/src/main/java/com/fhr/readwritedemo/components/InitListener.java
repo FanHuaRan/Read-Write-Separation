@@ -17,7 +17,7 @@ import com.fhr.readwritedemo.core.services.impl.UdpDSMonitor;
 /**
  * web生命周期监听器
  * @author fhr
- * @date 2017/07/12
+ * @since 2017/07/12
  */
 public class InitListener implements ServletContextListener {
 	private static final Logger logger = Logger.getLogger(InitListener.class);

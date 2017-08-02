@@ -5,7 +5,7 @@ import javax.sql.DataSource;
 /**
  * 数据库模型
  * @author fhr
- * @date 2017/07/28
+ * @since 2017/07/28
  */
 public class DataBaseModel implements java.io.Serializable {
 	private static final long serialVersionUID = 4540473938989375233L;

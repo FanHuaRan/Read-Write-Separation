@@ -2,7 +2,7 @@ package com.fhr.readwritedemo.models;
 /**
  * 测试用户表
  * @author fhr
- * @date 2017/07/29
+ * @since 2017/07/29
  */
 public class RwUser implements java.io.Serializable {
 	private static final long serialVersionUID = -5612769375299669730L;

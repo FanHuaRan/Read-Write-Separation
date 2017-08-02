@@ -71,7 +71,6 @@ INDEX VERSION 1.127+E:\Programing\Read-Write-Separation\java\.metadata\.plugins\
 678482644.index
 166999371.index
 3383715726.index
-2914294467.index
 3475703725.index
 1008930654.index
 2167762139.index

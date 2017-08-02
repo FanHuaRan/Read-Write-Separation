@@ -6,9 +6,8 @@ import java.util.Map;
 
 /**
  * 自定义jdbc操作接口
- * 
  * @author fhr
- * @date
+ * @since 2017/08/30
  */
 public interface ICustomJdbcOperations {
 	/**

@@ -20,7 +20,6 @@ import com.fhr.readwritedemo.core.services.IDataBaseModelService;
 
 /**
  * 数据库初始化实现
- * 
  * @author fhr
  * @since 2017/08/02
  */

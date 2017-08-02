@@ -12,7 +12,7 @@ import com.fhr.osmonitor.utils.ResourceUtils;
 /**
  * 监听配置对象
  * @author fhr
- * @date 2017/07/26
+ * @since 2017/07/26
  */
 public class MonitorConfig {
 	private static final Logger logger = Logger.getLogger(MonitorConfig.class);

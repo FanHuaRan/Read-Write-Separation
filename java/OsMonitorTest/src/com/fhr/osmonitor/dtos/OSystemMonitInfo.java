@@ -7,7 +7,7 @@ import org.joda.time.DateTime;
 /**
  * 简化版系统检测信息 这个主要用于网络传输 
  * @author fhr
- * @date 2017/07/25
+ * @since 2017/07/25
  */
 public class OSystemMonitInfo implements Serializable {
 	private static final long serialVersionUID = 2114525443130295160L;

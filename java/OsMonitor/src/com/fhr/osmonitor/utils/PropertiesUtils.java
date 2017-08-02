@@ -15,7 +15,7 @@ import java.util.Properties;
  * 配置文件读取封装
  * 
  * @author fhr
- * @date 2017/05/23
+ * @since 2017/05/23
  */
 public class PropertiesUtils {
 	/**

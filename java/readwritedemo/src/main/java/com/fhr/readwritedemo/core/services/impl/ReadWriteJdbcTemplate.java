@@ -16,7 +16,7 @@ import com.fhr.readwritedemo.utils.JdbcTool;
 /**
  * 读写分离的jdbctemplate的实现
  * @author fhr
- * @date
+ * @since 2017/08/30
  */
 @Service
 public class ReadWriteJdbcTemplate implements ICustomJdbcOperations {

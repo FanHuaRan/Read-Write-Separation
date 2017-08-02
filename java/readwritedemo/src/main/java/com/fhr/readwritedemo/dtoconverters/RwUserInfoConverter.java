@@ -11,7 +11,7 @@ import com.fhr.readwritedemo.models.RwUser;
 /**
  * rwuser dto和model转换器
  * @author fhr
- * @date 2017/07/29
+ * @since 2017/07/29
  */
 @Component
 public class RwUserInfoConverter {

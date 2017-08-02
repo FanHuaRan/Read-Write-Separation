@@ -29,6 +29,7 @@ public class DataSourceSys {
 	
 	// 通过算法计算出合适的数据库源
 	public static DataSource getReadDataSource(){
+		//加权随机算法计算出随机的数据库服务器
 	 	String correctHost=RandomAloUtils.weightedRandom(ServerWeights);
 	 	return HostReadDataSourcesMap.get(correctHost);
 	}

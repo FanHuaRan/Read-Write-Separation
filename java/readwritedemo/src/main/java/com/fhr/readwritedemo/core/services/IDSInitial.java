@@ -5,7 +5,7 @@ import java.util.Map;
 import com.fhr.readwritedemo.core.models.DataBaseInfo;
 
 /**
- * 数据库初始化工具
+ * 数据库初始化接口
  * @author fhr
  * @since 2017/08/02
  */

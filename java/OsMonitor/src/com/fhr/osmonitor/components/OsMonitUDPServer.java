@@ -14,7 +14,7 @@ import com.fhr.osmonitor.utils.ObjcetSerializableUtils;
 /**
  * 操作系统检测UDP服务器
  * @author fhr
- * @date 2017/07/26
+ * @since 2017/07/26
  */
 public class OsMonitUDPServer implements AutoCloseable {
 	private static final Logger logger = Logger.getLogger(OsMonitUDPServer.class);

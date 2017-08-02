@@ -7,7 +7,7 @@ import com.fhr.readwritedemo.dtomodels.RwUserInfo;
 /**
  * RwUserInfo服务
  * @author fhr
- * @date 2017/07/29
+ * @since 2017/07/29
  */ 
 public interface IRwUserInfoService {
 	

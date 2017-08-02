@@ -16,7 +16,7 @@ import java.util.stream.Collectors;
 /**
  * jdbc简单工具
  * @author fhr
- * @date 2017/06/12
+ * @since 2017/06/12
  */
 public class JdbcTool {
 	/**

@@ -4,9 +4,9 @@ import java.util.List;
 
 import com.fhr.readwritedemo.core.services.IPageQueryCreateStrategy;
 /**
- * sqlserver分页查询语句生成实现
+ * sqlserver分页查询语句生成实现 暂时不写
  * @author fhr
- * @date 2017/07/31
+ * @since 2017/07/31
  */
 public class MSSqlPageQueryCreateStrategy implements IPageQueryCreateStrategy {
 

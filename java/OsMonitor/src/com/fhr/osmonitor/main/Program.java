@@ -11,7 +11,7 @@ import com.fhr.osmonitor.components.OsMonitor;
 /**
  * 操作系统信息监听服务程序
  * @author fhr
- * @date 2017/07/26
+ * @since 2017/07/26
  */
 public class Program {
 	private static final Logger logger = Logger.getLogger(Program.class);

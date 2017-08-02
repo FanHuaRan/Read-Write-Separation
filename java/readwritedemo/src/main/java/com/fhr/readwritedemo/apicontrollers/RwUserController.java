@@ -22,6 +22,7 @@ import io.swagger.annotations.ApiResponses;
 
 /**
  * 用户API控制器
+ * 测试读写分离 
  * @author fhr
  * @date 2017/07/29
  */

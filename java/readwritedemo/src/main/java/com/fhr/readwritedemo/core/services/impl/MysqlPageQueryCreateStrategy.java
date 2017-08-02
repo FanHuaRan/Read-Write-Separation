@@ -11,7 +11,7 @@ import com.fhr.readwritedemo.core.services.IPageQueryCreateStrategy;
 /**
  * mysql分页查询语句生成实现
  * @author fhr
- * @date 2017/07/31
+ * @since 2017/07/31
  */
 @Service
 public class MysqlPageQueryCreateStrategy implements IPageQueryCreateStrategy {

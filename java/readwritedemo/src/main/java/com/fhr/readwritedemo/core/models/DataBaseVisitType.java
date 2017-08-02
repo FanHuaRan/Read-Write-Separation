@@ -2,7 +2,7 @@ package com.fhr.readwritedemo.core.models;
 /**
  * 数据库访问类型
  * @author fhr
- * @date 2017/07/28 
+ * @since 2017/07/28 
  */
 public enum DataBaseVisitType {
 	MASTER,//主库 用于写

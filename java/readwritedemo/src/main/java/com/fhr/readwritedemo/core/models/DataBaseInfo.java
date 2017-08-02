@@ -5,7 +5,7 @@ import java.text.MessageFormat;
 /**
  * 数据库服务器信息
  * @author fhr
- * @date 2017/07/28
+ * @since 2017/07/28
  */
 public class DataBaseInfo implements java.io.Serializable {
 	private static final long serialVersionUID = 8611633278205294077L;

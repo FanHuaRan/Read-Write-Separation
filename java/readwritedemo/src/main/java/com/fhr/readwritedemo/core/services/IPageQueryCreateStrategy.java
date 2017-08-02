@@ -4,8 +4,9 @@ import java.util.List;
 
 /**
  * 分页查询语句生成策略
+ * mysql,oracle,mssql分页查询语句的语法不一样
  * @author fhr
- * @date
+ * @since 
  */
 public interface IPageQueryCreateStrategy {
 	/**

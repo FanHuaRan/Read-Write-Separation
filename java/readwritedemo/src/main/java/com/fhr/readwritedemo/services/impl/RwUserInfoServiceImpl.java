@@ -18,7 +18,7 @@ import com.fhr.readwritedemo.services.IRwUserInfoService;
 /**
  * rwuser服务实现（数据访问、事务处理、错误处理的大一统）
  * @author fhr
- * @date 2017/07/31
+ * @since 2017/07/31
  */
 @Service
 public class RwUserInfoServiceImpl implements IRwUserInfoService {

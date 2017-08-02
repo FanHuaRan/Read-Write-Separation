@@ -14,9 +14,10 @@ import com.fhr.osmonitor.models.OSystemInfo;
  * 通过sigar库实现内存、cpu信息读取
  * 需要将第三方的dll或者so文件拷贝到java library home下面
  * 该路径不唯一：可以通过如下代码打印出路径
+ * 注意：centos下的cpu信息经常都检测来为0？？？
  * System.out.println(System.getProperty("java.library.path"));
  * @author fhr
- * @date 2017/06/11 
+ * @since 2017/06/11 
  */
 public class SigarOSUtils{
 	private static final Logger logger = Logger.getLogger(SigarOSUtils.class);

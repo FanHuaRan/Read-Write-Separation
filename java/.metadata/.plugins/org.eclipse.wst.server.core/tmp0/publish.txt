@@ -1,4 +1,4 @@
 #Tomcat publish data
-#Wed Aug 02 17:23:22 CST 2017
+#Wed Aug 02 17:43:20 CST 2017
 org.eclipse.jst.jee.server\:/binary\:D\:\\MavenRepository\\org\\springframework\\spring-web\\4.3.8.RELEASE\\spring-web-4.3.8.RELEASE.jar=D\:\\green\\tomcat\\apache-tomcat-8.0.39\\wtpwebapps\\readwritedemo\\WEB-INF\\lib\\spring-web-4.3.8.RELEASE.jar
 org.eclipse.jst.jee.server\:readwritedemo=D\:\\green\\tomcat\\apache-tomcat-8.0.39\\wtpwebapps\\readwritedemo

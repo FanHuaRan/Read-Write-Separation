@@ -8,7 +8,7 @@ import com.fhr.readwritedemo.core.models.DataBaseModel;
 /**
  * 数据库初始化服务
  * @author fhr
- * @date
+ * @since 2017/08/02
  */
 public interface IDataBaseModelService {
 	/**

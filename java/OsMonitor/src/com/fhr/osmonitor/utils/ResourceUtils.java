@@ -5,7 +5,7 @@ import java.io.InputStream;
 /**
  * 资源辅助类
  * @author ASUS
- * @date 2017/07/26
+ * @since 2017/07/26
  */
 public class ResourceUtils {
 	/**

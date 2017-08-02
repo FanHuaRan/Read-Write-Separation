@@ -17,15 +17,18 @@ import com.fhr.readwritedemo.core.services.IDataBaseModelService;
 /**
  * 数据库模型服务实现
  * @author fhr
- * @date 2017/07/29
+ * @since 2017/07/29
  */
 @Service
 public class DataBaseModelServiceImpl implements IDataBaseModelService{
 	private static final Logger logger=Logger.getLogger(DataBaseModelServiceImpl.class);
+	
 	@Autowired
 	private ICreateDataSource createDataSourceService=null;
 	
-	//获取数据库模型集合
+	/**
+	 * 获取数据库模型集合并且同时创建数据源
+	 */
 	@Override
 	public 	List<DataBaseModel> getDataBaseModels(List<DataBaseInfo> dataBaseInfos){
 		List<DataBaseModel> dataBaseModels=new ArrayList<>();

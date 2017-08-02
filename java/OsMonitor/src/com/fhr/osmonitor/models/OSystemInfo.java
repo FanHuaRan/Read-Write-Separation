@@ -7,7 +7,7 @@ import org.joda.time.DateTime;
 /**
  * 系统信息
  * @author fhr
- * @date 2017/06/11
+ * @since 2017/06/11
  */
 public class OSystemInfo implements Serializable {
 	private static final long serialVersionUID = 5494824275273574194L;

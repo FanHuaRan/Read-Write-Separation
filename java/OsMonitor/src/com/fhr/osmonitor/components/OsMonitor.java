@@ -18,8 +18,9 @@ import com.fhr.osmonitor.utils.SigarOSUtils;
 /**
  * 操作系统监视器
  * 带事件驱动 ....如果以后有功能扩展的话
+ * 注意：感觉有时会莫名停止？？
  * @author fhr
- * @date 2017/07/26
+ * @since 2017/07/26
  */
 public class OsMonitor implements AutoCloseable {
 	private static final Logger logger = Logger.getLogger(OsMonitor.class);

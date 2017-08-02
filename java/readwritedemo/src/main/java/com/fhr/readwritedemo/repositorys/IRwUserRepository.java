@@ -8,7 +8,7 @@ import com.fhr.readwritedemo.models.RwUser;
 /**
  * RwUser仓库接口
  * @author fhr
- * @date 2017/07/29
+ * @since 2017/07/29
  */
 public interface IRwUserRepository {
 	List<RwUser> findAll() throws SQLException;
