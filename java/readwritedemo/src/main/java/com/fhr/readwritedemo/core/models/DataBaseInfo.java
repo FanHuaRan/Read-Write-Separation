@@ -1,5 +1,7 @@
 package com.fhr.readwritedemo.core.models;
 
+import java.text.MessageFormat;
+
 /**
  * 数据库服务器信息
  * @author fhr
@@ -60,7 +62,7 @@ public class DataBaseInfo implements java.io.Serializable {
 	
 	@Override
 	public String toString(){
-		return String.format("{url:%s,user:%s,password:%s,databasetype:%d,visittype:%d}",url,user,password,dataBaseType,dataBaseVisitType);
+		return MessageFormat.format("{url:{0},user:{1},password:{2},databasetype:{3},visittype:{4}}", url,user,password,dataBaseType,dataBaseVisitType);
 	}
 
 }

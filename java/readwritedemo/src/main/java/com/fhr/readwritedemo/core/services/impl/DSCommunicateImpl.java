@@ -8,7 +8,7 @@ import java.net.InetAddress;
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
 
-import com.fhr.readwritedemo.core.models.dto.OSystemMonitInfo;
+import com.fhr.osmonitor.dtos.OSystemMonitInfo;
 import com.fhr.readwritedemo.core.services.IDSCommunicate;
 import com.fhr.readwritedemo.utils.ObjcetSerializableUtils;
 /**
@@ -22,13 +22,13 @@ public class DSCommunicateImpl implements IDSCommunicate {
 	
 	// 获取数据库服务器的检测信息
 	@Override
-	public OSystemMonitInfo getInfo(String host, int port) {
+	public OSystemMonitInfo getInfo(String host, int port,int timeout) {
 			try{
 				 DatagramSocket client = new DatagramSocket();
 				byte[] bytes=new String("osinfo").getBytes();
-				DatagramPacket  datagramPacket=new DatagramPacket(bytes,bytes.length,InetAddress.getByName("localhost"), 16081);
+				DatagramPacket  datagramPacket=new DatagramPacket(bytes,bytes.length,InetAddress.getByName(host), port);
 			    client.send(datagramPacket);
-			    DatagramPacket resultData=getClientDatagramPacket(client);
+			    DatagramPacket resultData=getClientDatagramPacket(client,timeout);
 				return (OSystemMonitInfo) ObjcetSerializableUtils.toObject(resultData.getData());
 			}catch(Exception e){
 				e.printStackTrace();
@@ -38,9 +38,10 @@ public class DSCommunicateImpl implements IDSCommunicate {
 		}
 		
 		// 阻塞获取返回的数据包
-		private DatagramPacket getClientDatagramPacket(DatagramSocket datagramSocket ) throws IOException {
+		private DatagramPacket getClientDatagramPacket(DatagramSocket datagramSocket,int timeout) throws IOException {
 			byte[] bufferBytes = new byte[2048];//2kb的获取数据的缓冲区
 			DatagramPacket reveivePacket = new DatagramPacket(bufferBytes, bufferBytes.length);
+			datagramSocket.setSoTimeout(timeout);
 			datagramSocket.receive(reveivePacket);
 			return reveivePacket;
 		}

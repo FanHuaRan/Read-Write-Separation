@@ -52,11 +52,12 @@ public class InitListener implements ServletContextListener {
 			// 获取数据库服务器监控器
 			dsMonitor = (IDSMonitor) springContext.getBean(UdpDSMonitor.class);
 			dsMonitor.setDataBaseInfos(dsInitial.inital());
+			dsMonitor.start();
 //			if (dsMonitor != null) {
 //				// 运行监控程序
 //				dsMonitor.start();
 //			} else {
-//				logger.error("初始化错误 未找到office服务组件");
+//				logger.error("初始化错误 未找到monitor服务组件");
 //			}
 		}
 	}

@@ -12,9 +12,9 @@ import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.fhr.osmonitor.dtos.OSystemMonitInfo;
 import com.fhr.readwritedemo.core.global.DataSourceSys;
 import com.fhr.readwritedemo.core.models.DataBaseInfo;
-import com.fhr.readwritedemo.core.models.dto.OSystemMonitInfo;
 import com.fhr.readwritedemo.core.services.IDSCommunicate;
 import com.fhr.readwritedemo.core.services.IDSMonitor;
 
@@ -29,8 +29,10 @@ public class UdpDSMonitor implements IDSMonitor {
 
 	// 数据库服务器上运行的检测程序的端口硬编码为了16081
 	private static final int PORT = 16081;
-	// 检测周期
+	// 检测周期 s为单位
 	private static final int PERIOD = 30;
+	// 获取某个数据库服务器信息的超时时间  ms为单位
+	private static final int TIMEOUT=300;
 	// 内存占用率严重限度  超过此限度的服务器的权值将被设置为0 即暂不使用
 	public static final double MEMORY_SERIOUS_RATE=0.95;
 	// cpu占用率严重限度 超过此限度的服务器的权值将被设置为0 即暂不使用
@@ -51,14 +53,14 @@ public class UdpDSMonitor implements IDSMonitor {
 		executorService.scheduleAtFixedRate(() -> {
 			for(Entry<String,DataBaseInfo> entry:dataBaseInfos.entrySet()){
 				//获取服务器检测信息
-				OSystemMonitInfo oSystemMonitInfo = dSCommunicate.getInfo(entry.getValue().getHost(), PORT);
+				OSystemMonitInfo oSystemMonitInfo = dSCommunicate.getInfo(entry.getValue().getHost(), PORT,TIMEOUT);
 				//获取服务器权重
 				int weight=computeServerWeight(oSystemMonitInfo);
 				valueWeights.put(entry.getKey(),weight);
 			}
 			//更新到主环境当中
 			DataSourceSys.setServerWeights(valueWeights);
-		}, PERIOD, 0, TimeUnit.SECONDS);
+		},0, PERIOD, TimeUnit.SECONDS);
 	}
 
 	@Override
@@ -72,10 +74,11 @@ public class UdpDSMonitor implements IDSMonitor {
 		if(oSystemMonitInfo==null||inSerious(oSystemMonitInfo)){
 			return 0;
 		}
-		//策略是求得剩余内存和cpu的使用率 累加然后乘上20取整就得到权重
+		//策略是求得剩余内存率和cpu的使用率 
+		//累加然后乘上20取整就得到权重
 		double freeMem=1-oSystemMonitInfo.getMemoryRatio();
 		double freeCpu=1-oSystemMonitInfo.getCpuRatio();
-		return (int)(freeMem+freeCpu)*20;
+		return (int)((freeMem+freeCpu)*20);
 	}
 	// 判断是否处于严重状态 这儿也应该独立一个接口出来
 	private boolean inSerious(OSystemMonitInfo oSystemMonitInfo) {

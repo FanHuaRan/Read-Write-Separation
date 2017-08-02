@@ -2,7 +2,7 @@ package com.fhr.readwritedemo.core.services;
 
 import java.util.List;
 
-import com.fhr.readwritedemo.core.models.dto.OSystemMonitInfo;
+import com.fhr.osmonitor.dtos.OSystemMonitInfo;
 
 /**
  * 数据库服务器检测回调函数接口

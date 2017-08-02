@@ -12,3 +12,4 @@
 1501581920529	Encapsulate field 'httpStatus'
 1501642562260	Encapsulate field 'dataBaseInfos'
 1501644262515	Rename local variable 'readDataSources'
+1501654115444	Rename package 'com.fhr.readwritedemo.core.models.dto'

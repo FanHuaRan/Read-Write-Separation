@@ -19,10 +19,8 @@ import com.fhr.osmonitor.models.OSystemInfo;
  * @date 2017/06/11 
  */
 public class SigarOSUtils{
-	/**
-	 * 日志组件
-	 */
 	private static final Logger logger = Logger.getLogger(SigarOSUtils.class);
+	
 	/**
 	 * sigar组件  是个工厂对象，可以用于获取内存对象、cpu对象、硬盘对象等等
 	 */

@@ -1,6 +1,6 @@
 package com.fhr.readwritedemo.core.services;
 
-import com.fhr.readwritedemo.core.models.dto.OSystemMonitInfo;
+import com.fhr.osmonitor.dtos.OSystemMonitInfo;
 
 /**
  * 数据库服务器通信接口
@@ -9,5 +9,5 @@ import com.fhr.readwritedemo.core.models.dto.OSystemMonitInfo;
  */
 public interface IDSCommunicate {
 	//获取操作系统信息
-	OSystemMonitInfo getInfo(String host,int port);
+	OSystemMonitInfo getInfo(String host,int port,int timeout);
 }
