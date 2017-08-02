@@ -1,9 +1,0 @@
-package com.fhr.osmonitor.utils;
-/**
- * 资源辅助类
- * @author ASUS
- * @date 2017/07/26
- */
-public class ResourceUtils {
-	
-}

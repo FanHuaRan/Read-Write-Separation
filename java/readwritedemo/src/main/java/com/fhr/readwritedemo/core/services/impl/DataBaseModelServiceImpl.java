@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import com.fhr.readwritedemo.core.models.DataBaseInfo;
 import com.fhr.readwritedemo.core.models.DataBaseModel;
+import com.fhr.readwritedemo.core.models.DataBaseVisitType;
 import com.fhr.readwritedemo.core.services.ICreateDataSource;
 import com.fhr.readwritedemo.core.services.IDataBaseModelService;
 /**
@@ -30,7 +31,8 @@ public class DataBaseModelServiceImpl implements IDataBaseModelService{
 		List<DataBaseModel> dataBaseModels=new ArrayList<>();
 		for(DataBaseInfo dataBaseInfo:dataBaseInfos){
 			DataSource dataSource=createDataSourceService.create(dataBaseInfo);
-			dataBaseModels.add(new DataBaseModel(dataBaseInfo, dataSource));
+			boolean isMaster=dataBaseInfo.getDataBaseVisitType()==DataBaseVisitType.MASTER;
+			dataBaseModels.add(new DataBaseModel(dataBaseInfo, dataSource,isMaster));
 		}
 		return dataBaseModels;
 	}

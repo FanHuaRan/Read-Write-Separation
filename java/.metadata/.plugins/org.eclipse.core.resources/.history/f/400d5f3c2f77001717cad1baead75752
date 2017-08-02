@@ -1,0 +1,55 @@
+package com.fhr.readwritedemo.core.services.impl;
+
+import java.util.List;
+import java.util.Map;
+
+import javax.sql.DataSource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.fhr.readwritedemo.core.global.DataSourceSys;
+import com.fhr.readwritedemo.core.models.DataBaseInfo;
+import com.fhr.readwritedemo.core.models.DataBaseModel;
+import com.fhr.readwritedemo.core.services.IDSInitial;
+import com.fhr.readwritedemo.core.services.IDataBaseInfoService;
+import com.fhr.readwritedemo.core.services.IDataBaseModelService;
+/**
+ * 数据库初始化实现
+ * @author fhr
+ * @since 2017/08/02
+ */
+@Service
+public class DSInitialImpl implements IDSInitial {
+	@Autowired
+	private IDataBaseModelService dataBaseModelService=null;
+	@Autowired
+	private IDataBaseInfoService  dataBaseInfoService=null;
+	
+	@Override
+	public Map<String, DataBaseInfo> inital() {
+		List<DataBaseInfo> dataBaseInfos=dataBaseInfoService.getDataBaseInfos();
+		List<DataBaseModel> dataBaseModels=dataBaseModelService.getDataBaseModels(dataBaseInfos);
+		dataBaseModels.stream().filter(p->p.))
+		
+		return null;
+	}
+	/*
+	 * 
+	 * 
+	 * 
+	 * // 用于写数据的数据源
+	private static DataSource WriteDataSource;
+
+	// 用于读数据的数据源
+	private static List<DataSource> ReadDataSources;
+
+	// key为host value为DataSource
+	private static Map<String, DataSource> HostReadDataSourcesMap;
+	
+	// 数据库服务器权重 暂时使用volatile关键字保证线程安全 
+	// 每次检测完之后重新计算替换ServerWeights 
+	private static volatile Map<String, Integer> ServerWeights;
+	 */
+
+}

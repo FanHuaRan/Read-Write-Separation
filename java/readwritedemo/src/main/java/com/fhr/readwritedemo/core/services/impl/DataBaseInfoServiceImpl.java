@@ -61,19 +61,19 @@ public class DataBaseInfoServiceImpl implements IDataBaseInfoService {
 
 	// 获取数据库类型
 	private DataBaseType getDataBaseType(Integer value) {
-		if (value == null || value < 0 || value >= DataBaseType.values().length) {
+		if (value == null || value < 1|| value > DataBaseType.values().length) {
 			logger.error("数据库配置DataBaseType不合法，使用缺省数据库类型");
 			return DataBaseType.MYSQL;
 		}
-		return DataBaseType.values()[value];
+		return DataBaseType.values()[value-1];
 	}
 
 	// 获取数据库访问类型
 	private DataBaseVisitType getDataBaseVisitType(Integer value) {
-		if (value == null || value < 0 || value >= DataBaseVisitType.values().length) {
+		if (value == null || value < 1 || value > DataBaseVisitType.values().length) {
 			logger.error("数据库配置DataBaseVisitType不合法，使用缺省数据库访问类型");
 			return DataBaseVisitType.SLAVE;
 		}
-		return DataBaseVisitType.values()[value];
+		return DataBaseVisitType.values()[value-1];
 	}
 }

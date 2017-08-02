@@ -1,5 +1,0 @@
-package com.fhr.osmonitor.event;
-
-public class WarinEvent {
-
-}

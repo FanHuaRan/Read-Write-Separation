@@ -1,5 +1,6 @@
 package com.fhr.readwritedemo.core.global;
 
+import java.util.Collection;
 import java.util.List;
 import java.util.Map;
 
@@ -17,7 +18,7 @@ public class DataSourceSys {
 	private static DataSource WriteDataSource;
 
 	// 用于读数据的数据源
-	private static List<DataSource> ReadDataSources;
+	private static Collection<DataSource> ReadDataSources;
 
 	// key为host value为DataSource
 	private static Map<String, DataSource> HostReadDataSourcesMap;
@@ -41,11 +42,11 @@ public class DataSourceSys {
 		WriteDataSource = writeDataSource;
 	}
 
-	public static List<DataSource> getReadDataSources() {
+	public static Collection<DataSource> getReadDataSources() {
 		return ReadDataSources;
 	}
 
-	public static void setReadDataSources(List<DataSource> readDataSources) {
+	public static void setReadDataSources(Collection<DataSource> readDataSources) {
 		ReadDataSources = readDataSources;
 	}
 

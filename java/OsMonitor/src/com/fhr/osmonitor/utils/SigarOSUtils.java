@@ -12,7 +12,9 @@ import com.fhr.osmonitor.models.OSystemInfo;
 
 /**
  * 通过sigar库实现内存、cpu信息读取
- * 需要将第三方的dll或者so文件拷贝到jdk安装目录/bin目录下
+ * 需要将第三方的dll或者so文件拷贝到java library home下面
+ * 该路径不唯一：可以通过如下代码打印出路径
+ * System.out.println(System.getProperty("java.library.path"));
  * @author fhr
  * @date 2017/06/11 
  */

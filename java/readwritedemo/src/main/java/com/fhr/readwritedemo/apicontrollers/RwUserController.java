@@ -25,7 +25,7 @@ import io.swagger.annotations.ApiResponses;
  */
 @RestController
 @RequestMapping("/users")
-@Api(value = "/users", description = "用户相关操作")
+@Api(value = "users", description = "用户相关操作")
 public class RwUserController {
 
 	@Autowired

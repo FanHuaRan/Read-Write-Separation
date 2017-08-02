@@ -42,6 +42,7 @@ public class UdpDSMonitor implements IDSMonitor {
 	private IDSCommunicate dSCommunicate;
 	// 数据库信息映射 key为host value为数据库信息对象
 	private Map<String,DataBaseInfo> dataBaseInfos;
+	
 	@Override
 	public void start() {
 		// 监控信息得出的服务器权值
@@ -80,5 +81,9 @@ public class UdpDSMonitor implements IDSMonitor {
 	private boolean inSerious(OSystemMonitInfo oSystemMonitInfo) {
 			return oSystemMonitInfo.getCpuRatio() > CPU_SERIOUS_RATE
 					|| oSystemMonitInfo.getMemoryRatio() > MEMORY_SERIOUS_RATE;
+	}
+
+	public void setDataBaseInfos(Map<String,DataBaseInfo> dataBaseInfos) {
+		this.dataBaseInfos = dataBaseInfos;
 	}
 }

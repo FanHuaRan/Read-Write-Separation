@@ -53,7 +53,7 @@ public class OsMonitUDPServer implements AutoCloseable {
 				// 关闭程序会关闭socket,
 				// 从而会导致DatagramSocket.receive抛出：
 				// socket closed异常 所以不做处理
-				if (!e.getMessage().equals("socket closed")) {
+				if (!e.getMessage().toLowerCase().equals("socket closed")) {
 					e.printStackTrace();
 					logger.error(e);
 				}

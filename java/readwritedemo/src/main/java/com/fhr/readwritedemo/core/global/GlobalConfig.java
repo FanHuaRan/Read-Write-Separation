@@ -13,7 +13,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class GlobalConfig {
 	// 数据库信息配置文件的相对路径
-	private static final String RELATIVE_DATABASE_CONFIG_FILE = "databases.json";
+	private static final String RELATIVE_DATABASE_CONFIG_FILE = "WEB-INF/classes/databases.json";
 	// web根目录
 	public final String webRoot;
 	// 数据库配置文件路径
@@ -23,8 +23,8 @@ public class GlobalConfig {
 	@Autowired
 	public GlobalConfig(ServletContext servletContext){
 		this.servletContext=servletContext;
-		webRoot = servletContext.getRealPath("/WEB-INF/classes/databases.json");
-		databaseConfigFile = webRoot + "/" + RELATIVE_DATABASE_CONFIG_FILE;
+		webRoot = servletContext.getRealPath("/");
+		databaseConfigFile = webRoot + RELATIVE_DATABASE_CONFIG_FILE;
 	}
 
 	public ServletContext getServletContext() {

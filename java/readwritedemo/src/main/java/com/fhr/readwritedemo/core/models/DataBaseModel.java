@@ -26,8 +26,22 @@ public class DataBaseModel implements java.io.Serializable {
 	public DataBaseModel(DataBaseInfo dataBaseInfo, DataSource dataSource) {
 		this(dataBaseInfo, dataSource, false);
 	}
+	public DataBaseInfo getDataBaseInfo() {
+		return dataBaseInfo;
+	}
+
+	public DataSource getDataSource() {
+		return dataSource;
+	}
+
+	public boolean isMaster() {
+		return isMaster;
+	}
+	
 	@Override
 	public String toString(){
 		return String.format("{databaseInfo:{%s},datasource:%s,isMaster:%b}",dataBaseInfo,dataSource,isMaster);
 	}
+	
+	
 }

@@ -9,7 +9,9 @@ import org.apache.log4j.Logger;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
+import com.fhr.readwritedemo.core.services.IDSInitial;
 import com.fhr.readwritedemo.core.services.IDSMonitor;
+import com.fhr.readwritedemo.core.services.impl.DSInitialImpl;
 import com.fhr.readwritedemo.core.services.impl.UdpDSMonitor;
 
 /**
@@ -22,7 +24,9 @@ public class InitListener implements ServletContextListener {
 
 	// 数据库服务器监控器
 	private IDSMonitor dsMonitor = null;
-
+	
+	private IDSInitial dsInitial=null;
+	
 	// web结束
 	@Override
 	public void contextDestroyed(ServletContextEvent arg0) {
@@ -43,14 +47,17 @@ public class InitListener implements ServletContextListener {
 		if (springContext == null) {
 			logger.error("初始化错误 未找到spring上下文");
 		} else {
+			//数据库初始化工具
+			dsInitial=(IDSInitial)springContext.getBean(DSInitialImpl.class);
 			// 获取数据库服务器监控器
 			dsMonitor = (IDSMonitor) springContext.getBean(UdpDSMonitor.class);
-			if (dsMonitor != null) {
-				// 运行监控程序
-				dsMonitor.start();
-			} else {
-				logger.error("初始化错误 未找到office服务组件");
-			}
+			dsMonitor.setDataBaseInfos(dsInitial.inital());
+//			if (dsMonitor != null) {
+//				// 运行监控程序
+//				dsMonitor.start();
+//			} else {
+//				logger.error("初始化错误 未找到office服务组件");
+//			}
 		}
 	}
 
