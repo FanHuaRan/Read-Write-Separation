@@ -57,13 +57,10 @@
 	</section>
 	<section name="Maven2ProjectWizardArchifactPage">
 		<list key="package">
-			<item value="com.fhr.readwritedemo"/>
 		</list>
 		<list key="groupId">
-			<item value="com.fhr"/>
 		</list>
 		<list key="artifactId">
-			<item value="readwritedemo"/>
 		</list>
 		<list key="projectNameTemplate">
 			<item value="[artifactId]"/>

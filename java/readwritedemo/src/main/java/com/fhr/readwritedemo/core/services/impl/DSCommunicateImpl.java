@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.net.DatagramPacket;
 import java.net.DatagramSocket;
 import java.net.InetAddress;
+import java.net.SocketTimeoutException;
 
 import org.apache.log4j.Logger;
 import org.springframework.stereotype.Service;
@@ -30,7 +31,11 @@ public class DSCommunicateImpl implements IDSCommunicate {
 			    client.send(datagramPacket);
 			    DatagramPacket resultData=getClientDatagramPacket(client,timeout);
 				return (OSystemMonitInfo) ObjcetSerializableUtils.toObject(resultData.getData());
-			}catch(Exception e){
+			}catch(SocketTimeoutException e){
+				logger.error("获取数据包超时",e);
+				return null;
+			}
+			catch(Exception e){
 				e.printStackTrace();
 				logger.error("获取数据库服务器检测信息出错",e);
 				return null;

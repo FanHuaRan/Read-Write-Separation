@@ -1,0 +1,35 @@
+use save 
+
+http://localhost:8080/readwritedemo/api/v1/users/save
+
+User-Agent: Fiddler
+Host: localhost:8080
+Content-Type: application/json;charset=utf-8
+Content-Length: 84
+
+{
+    "Name": "yy",
+    "Age": 30,
+    "Gender": "男",
+    "Email": "212@qq.com"
+}
+
+
+
+use edit
+
+http://localhost:8080/readwritedemo/api/v1/users/update
+
+User-Agent: Fiddler
+Host: localhost:8080
+Content-Type: application/json;charset=utf-8
+Content-Length: 105
+
+
+{
+    "UserId":1,
+    "Name": "yy",
+    "Age": 30,
+    "Gender": "女",
+    "Email": "212@qq.com"
+}

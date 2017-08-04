@@ -1,7 +1,0 @@
-package com.fhr.osmonitor.event;
-
-import java.util.HashSet;
-
-public class SeriousListeners extends HashSet<SeriousListener> {
-
-}

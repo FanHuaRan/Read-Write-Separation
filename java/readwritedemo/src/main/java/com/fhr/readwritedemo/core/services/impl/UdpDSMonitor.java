@@ -20,6 +20,8 @@ import com.fhr.readwritedemo.core.services.IDSMonitor;
 
 /**
  * 基于udp的数据库服务器监控器
+ * 目前是使用ScheduledExecutorService来实现的
+ * 后面而言考虑使用spring定时定周期任务来执行
  * @author fhr
  * @since 2017/07/31
  */
@@ -36,7 +38,7 @@ public class UdpDSMonitor implements IDSMonitor {
 	// 内存占用率严重限度  超过此限度的服务器的权值将被设置为0 即暂不使用
 	public static final double MEMORY_SERIOUS_RATE=0.95;
 	// cpu占用率严重限度 超过此限度的服务器的权值将被设置为0 即暂不使用
-	public static final double CPU_SERIOUS_RATE=0.95;	
+	public static final double CPU_SERIOUS_RATE=1.0;	
 	// 定时任务线程池
 	private final ScheduledExecutorService executorService = Executors.newSingleThreadScheduledExecutor();
 	// 数据库服务器通讯组件
@@ -70,9 +72,9 @@ public class UdpDSMonitor implements IDSMonitor {
 	}
 	//计算服务器权重 这儿可以使用策略模式独立一个接口出来
 	public Integer computeServerWeight(OSystemMonitInfo oSystemMonitInfo) {
-		//监控信息为空或者处于严重状态权值就是0
+		//监控信息为空或者处于严重状态权值就是1
 		if(oSystemMonitInfo==null||inSerious(oSystemMonitInfo)){
-			return 0;
+			return 1;
 		}
 		//策略是求得剩余内存率和cpu的使用率 
 		//累加然后乘上20取整就得到权重

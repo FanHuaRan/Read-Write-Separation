@@ -1,3 +1,0 @@
-### 监听客户端配置 ###
-monit.interval=5 
-monit.socketport=15080 

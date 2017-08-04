@@ -13,6 +13,7 @@ import com.fhr.osmonitor.utils.ObjcetSerializableUtils;
 
 /**
  * 操作系统检测UDP服务器
+ * 在系统上运行一段时间之后会停止运行，尚未找到原因，实在不行可以考虑使用spring周期任务来完成！！！
  * @author fhr
  * @since 2017/07/26
  */
@@ -51,8 +52,7 @@ public class OsMonitUDPServer implements AutoCloseable {
 				}
 			} catch (SocketException e) {
 				// 关闭程序会关闭socket,
-				// 从而会导致DatagramSocket.receive抛出：
-				// socket closed异常 所以不做处理
+				// 从而会导致DatagramSocket.receive抛出socket closed异常 所以不做处理
 				if (!e.getMessage().toLowerCase().equals("socket closed")) {
 					e.printStackTrace();
 					logger.error(e);
@@ -67,7 +67,7 @@ public class OsMonitUDPServer implements AutoCloseable {
 		}
 	}
 
-	// 停止系统监听器和UDP通讯服务 会导致循环中一次SocketException异常的产生
+	// 停止系统监听器和UDP通讯服务 会导致循环体try中SocketException异常的产生
 	@Override
 	public void close() {
 		osMonitor.close();
