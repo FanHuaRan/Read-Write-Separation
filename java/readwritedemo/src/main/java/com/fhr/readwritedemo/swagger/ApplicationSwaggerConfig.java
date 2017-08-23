@@ -9,7 +9,7 @@ import springfox.documentation.swagger2.annotations.EnableSwagger2;
 /**
  * swagger配置类
  * @author fhr
- * @date 2017/07/29
+ * @since 2017/07/29
  */
 @EnableSwagger2
 public class ApplicationSwaggerConfig {

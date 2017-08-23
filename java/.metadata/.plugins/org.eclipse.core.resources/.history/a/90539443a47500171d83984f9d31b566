@@ -1,7 +1,0 @@
-package com.fhr.readwritedemo.core.services;
-
-import java.sql.Connection;
-
-public interface IConnectionGetService {
-	Connection getConnection();
-}

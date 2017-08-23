@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="javax.servlet.ServletContext"/>
-<fullyQualifiedTypeName name="org.springframework.web.bind.annotation.RequestMethod"/>
-<fullyQualifiedTypeName name="io.swagger.annotations.ApiModelProperty"/>
-<fullyQualifiedTypeName name="io.swagger.annotations.Api"/>
-<fullyQualifiedTypeName name="io.swagger.annotations.ApiOperation"/>
-<fullyQualifiedTypeName name="io.swagger.annotations.ApiResponses"/>
 <fullyQualifiedTypeName name="io.swagger.annotations.ApiResponse"/>
 <fullyQualifiedTypeName name="java.io.Closeable"/>
 <fullyQualifiedTypeName name="com.fhr.readwritedemo.core.services.IDSCommunicate"/>
@@ -60,4 +54,10 @@
 <fullyQualifiedTypeName name="com.fhr.readwritedemo.dtomodels.RwUserInfo"/>
 <fullyQualifiedTypeName name="java.lang.Integer"/>
 <fullyQualifiedTypeName name="java.net.SocketTimeoutException"/>
+<fullyQualifiedTypeName name="org.apache.naming.factory.BeanFactory"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.FactoryBean"/>
+<fullyQualifiedTypeName name="com.fhr.readwritedemo.core.services.impl.DataBaseModelServiceImpl"/>
+<fullyQualifiedTypeName name="org.springframework.beans.factory.BeanFactory"/>
+<fullyQualifiedTypeName name="org.apache.catalina.core.ApplicationContext"/>
+<fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
 </qualifiedTypeNameHistroy>

@@ -1,5 +1,0 @@
-package com.fhr.readwritedemo.exceptions;
-
-public class NotFoundException extends RuntimeException {
-
-}

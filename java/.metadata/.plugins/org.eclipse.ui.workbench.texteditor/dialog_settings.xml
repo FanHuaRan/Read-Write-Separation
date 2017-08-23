@@ -6,12 +6,15 @@
 	</section>
 	<section name="org.eclipse.ui.texteditor.FindReplaceDialog">
 		<item value="false" key="isRegEx"/>
-		<item value="getClientDatagramPacket" key="selection"/>
+		<item value="getBridgedMethod" key="selection"/>
 		<item value="false" key="casesensitive"/>
 		<item value="false" key="incremental"/>
 		<item value="true" key="wrap"/>
 		<item value="false" key="wholeword"/>
 		<list key="findhistory">
+			<item value="getBridgedMethod"/>
+			<item value="getBr"/>
+			<item value="getHandler"/>
 			<item value="getClientDatagramPacket"/>
 		</list>
 		<list key="replacehistory">

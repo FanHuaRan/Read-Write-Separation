@@ -1,9 +1,0 @@
-package com.fhr.readwritedemo.models;
-/**
- * 数据库模型
- * @author fhr
- * @date
- */
-public class DataBaseModel {
-
-}

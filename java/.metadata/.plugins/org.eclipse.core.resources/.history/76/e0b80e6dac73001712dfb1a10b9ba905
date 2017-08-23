@@ -1,5 +1,0 @@
-package com.fhr.readwritedemo.models;
-
-public enum DataBaseVisitType {
-
-}

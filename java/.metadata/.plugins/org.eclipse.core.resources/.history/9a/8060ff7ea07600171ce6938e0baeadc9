@@ -1,5 +1,0 @@
-[
- {"host":"101.200.55.205","url":"xxxx","user":"root","password":"123",databasetype:2,visittype:1},
- {"host":"59.110.159.142","url":"yyyy","user":"root","password":"123",databasetype:2,visittype:2},
- {"host":"localhost","localhost:3306/readwritedemo","user":"root","password":"123",databasetype:2,visittype:2
-]

@@ -1,6 +1,0 @@
-package com.fhr.readwritedemo.core.services;
-
-public interface IDSInitial {
-	
-	void inital();
-}
