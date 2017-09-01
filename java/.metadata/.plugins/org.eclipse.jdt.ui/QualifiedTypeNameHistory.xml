@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-<fullyQualifiedTypeName name="io.swagger.annotations.ApiResponse"/>
-<fullyQualifiedTypeName name="java.io.Closeable"/>
 <fullyQualifiedTypeName name="com.fhr.readwritedemo.core.services.IDSCommunicate"/>
 <fullyQualifiedTypeName name="com.fhr.readwritedemo.core.services.impl.DSCommunicateImpl"/>
 <fullyQualifiedTypeName name="org.omg.PortableServer.ThreadPolicy"/>
@@ -19,7 +17,6 @@
 <fullyQualifiedTypeName name="com.google.common.util.concurrent.Monitor"/>
 <fullyQualifiedTypeName name="com.fhr.readwritedemo.core.models.dto.OSystemMonitInfo"/>
 <fullyQualifiedTypeName name="com.sun.corba.se.spi.activation.Server"/>
-<fullyQualifiedTypeName name="java.lang.Object"/>
 <fullyQualifiedTypeName name="java.net.ConnectException"/>
 <fullyQualifiedTypeName name="com.fhr.readwritedemo.utils.RandomAloUtils"/>
 <fullyQualifiedTypeName name="org.apache.commons.io.filefilter.FalseFileFilter"/>
@@ -60,4 +57,7 @@
 <fullyQualifiedTypeName name="org.springframework.beans.factory.BeanFactory"/>
 <fullyQualifiedTypeName name="org.apache.catalina.core.ApplicationContext"/>
 <fullyQualifiedTypeName name="org.springframework.context.ApplicationContext"/>
+<fullyQualifiedTypeName name="java.lang.Object"/>
+<fullyQualifiedTypeName name="com.mchange.io.FileUtils"/>
+<fullyQualifiedTypeName name="org.apache.commons.io.FileUtils"/>
 </qualifiedTypeNameHistroy>
